@@ -112,6 +112,19 @@ const About = () => {
           Crafting impactful marketing strategies to reach and engage audiences.
         </p>
       </div>
+      {/* Team Member 4 */}
+      <div className="team-member text-center bg-white shadow-lg rounded-xl p-6 hover:shadow-2xl transition-shadow duration-300">
+        <img
+          src={user}
+          alt="Alex Brown"
+          className="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-blue-500"
+        />
+        <h3 className="text-2xl font-semibold text-gray-800 mb-1">Alex Brown</h3>
+        <p className="text-blue-600 font-medium mb-3">Marketing Lead</p>
+        <p className="text-gray-500 text-sm">
+          Crafting impactful marketing strategies to reach and engage audiences.
+        </p>
+      </div>
     </div>
   </div>
 </section>
