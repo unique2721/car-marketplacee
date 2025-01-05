@@ -67,6 +67,7 @@ const Cars = () => {
                 {car.name}
               </h2>
                 <h2 className='mb-6'>location goes here</h2>
+                <hr class="my-8 border-t border-dotted border-gray-400"/>
               <div className=" flex flex-col justify-center items-center mb-6">
                 <div className='flex space-x-28 mb-2'>
                 <div className="flex justify-center items-center gap-2 text-gray-700">
