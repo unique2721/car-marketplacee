@@ -69,25 +69,25 @@ const Cars = () => {
                 <h2 className='mb-6'>location goes here</h2>
                 <hr class="my-8 border-t border-dotted border-gray-400"/>
               <div className=" flex flex-col justify-center items-center mb-6">
-                <div className='flex space-x-28 mb-2'>
+                <div className='flex justify-center items-center space-x-28 mb-2'>
                 <div className="flex justify-center items-center gap-2 text-gray-700">
                   <LuFuel className="text-2xl mb-2" />
-                  <p className="text-sm font-semibold">Miles</p>
+                  <p className="text-md font-semibold">Miles</p>
                 </div>
                 <div className="flex justify-center items-center gap-2 text-gray-700">
                   <RiSpeedUpLine className="text-2xl mb-2" />
-                  <p className="text-sm font-semibold">Speed</p>
+                  <p className="text-md font-semibold">Speed</p>
                 </div>
                 </div>
 
                 <div className='flex space-x-28 mb-2'>
                 <div className="flex justify-center items-center gap-2 text-gray-700">
                   <BsGearWideConnected className="text-2xl mb-2" />
-                  <p className="text-sm font-semibold">Gear</p>
+                  <p className="text-md font-semibold">Gear</p>
                 </div>
                 <div className="flex justify-center items-center gap-2 text-gray-700">
                   <BsGearWideConnected className="text-2xl mb-2" />
-                  <p className="text-sm font-semibold">Diesel</p>
+                  <p className="text-md font-semibold">Diesel</p>
                 </div>
                 </div>
               </div>
