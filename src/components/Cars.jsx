@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Data from '../Data/Data';
 /* React icons */
 import { LuFuel } from 'react-icons/lu';
@@ -6,8 +6,20 @@ import { RiSpeedUpLine } from 'react-icons/ri';
 import { BsGearWideConnected } from 'react-icons/bs';
 import { MdOpenInNew } from 'react-icons/md';
 import { FaSearch } from 'react-icons/fa';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 const Cars = () => {
+  const [favorites, setFavorites] = useState([]);
+
+  // Toggle favorite status
+  const toggleFavorite = (carId) => {
+    setFavorites((prevFavorites) =>
+      prevFavorites.includes(carId)
+        ? prevFavorites.filter((id) => id !== carId)
+        : [...prevFavorites, carId]
+    );
+  };
+
   return (
     <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen py-16">
       <h2 className="font-extrabold text-4xl text-center text-gray-800 mb-10">
@@ -15,7 +27,7 @@ const Cars = () => {
       </h2>
 
       {/* Search Bar */}
-      <div className=" flex md:hidden justify-center items-center mb-10">
+      <div className="flex justify-center items-center mb-10">
         <div className="relative w-full max-w-md">
           <input
             type="text"
@@ -31,10 +43,20 @@ const Cars = () => {
         {Data.Cars.map((car, index) => (
           <div
             key={index}
-            className="w-full sm:w-72 md:w-80 lg:w-96 bg-white rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-xl cursor-pointer group"
+            className="w-full sm:w-72 md:w-80 lg:w-96 bg-white rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-xl cursor-pointer group relative"
             data-aos="fade-up"
             data-aos-delay={`${index * 100}`}
           >
+            <div
+              className="absolute top-4 right-4 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-red-100 transition-all duration-300"
+              onClick={() => toggleFavorite(car.id)}
+            >
+              {favorites.includes(car.id) ? (
+                <AiFillHeart className="text-red-500 text-xl" />
+              ) : (
+                <AiOutlineHeart className="text-gray-500 text-xl" />
+              )}
+            </div>
             <img
               src={car.img}
               alt={car.name}
