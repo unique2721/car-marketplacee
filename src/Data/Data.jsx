@@ -89,142 +89,142 @@ const Cars = [
   {
     id: 1,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 2,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 3,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 4,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 5,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 6,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 7,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 8,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 9,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 10,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 11,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 12,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 13,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 14,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 15,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 16,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 17,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 18,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 19,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 20,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 21,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 22,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 23,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 24,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 25,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 26,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 27,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
   {
     id: 28,
     img: tesla,
-    name: 'tesla'
+    name: 'Audi A3 1.6 TDI S line'
   },
 ]
 
