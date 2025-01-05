@@ -89,15 +89,6 @@ const Services = () => {
           </div>
         </div>
       </section>
-
-      {/* Contact Section */}
-      <section className="py-16 bg-blue-600 text-white text-center" id="contact">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4">Contact Us Today</h2>
-          <p className="text-lg mb-6">Have questions about our services? Get in touch with our team to learn more and get personalized assistance.</p>
-          <a href="mailto:contact@carmarketplace.com" className="px-6 py-3 bg-white text-blue-600 rounded-full hover:bg-gray-200 transition-all duration-300">Contact Us</a>
-        </div>
-      </section>
       <Footer/>
     </div>
   );
