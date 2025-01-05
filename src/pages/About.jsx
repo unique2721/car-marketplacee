@@ -33,22 +33,22 @@ const About = () => {
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-12">Key Features</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-            <div className="feature-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300">
+            <div className="flex flex-col items-center justify-center feature-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300">
               <FaSearch className="text-4xl text-blue-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Easy Search</h3>
               <p className="text-gray-600">Find the perfect car in minutes with advanced search filters.</p>
             </div>
-            <div className="feature-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300">
+            <div className="flex flex-col items-center justify-center feature-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300">
               <FaCar className="text-4xl text-blue-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Wide Selection</h3>
               <p className="text-gray-600">Explore a vast variety of cars from trusted dealers and private sellers.</p>
             </div>
-            <div className="feature-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300">
+            <div className="flex flex-col items-center justify-centerfeature-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300">
               <FaHandshake className="text-4xl text-blue-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Trusted Deals</h3>
               <p className="text-gray-600">We ensure that every car listed is verified and free from hidden issues.</p>
             </div>
-            <div className="feature-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300">
+            <div className="flex flex-col items-center justify-center feature-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300">
               <FaUsers className="text-4xl text-blue-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Community Driven</h3>
               <p className="text-gray-600">Join a community of car enthusiasts and buyers who share reviews and tips.</p>

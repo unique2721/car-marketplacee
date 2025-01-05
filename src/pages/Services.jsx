@@ -24,7 +24,7 @@ const Services = () => {
           <h2 className="text-3xl font-bold mb-12">Our Services</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Service 1 */}
-            <div className="service-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300 cursor-pointer">
+            <div className=" flex flex-col justify-center items-center service-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300 cursor-pointer">
               <FaCar className="text-4xl text-blue-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Car Listings</h3>
               <p className="text-gray-600 mb-4">Browse a wide selection of cars with detailed descriptions, high-quality images, and comprehensive specs.</p>
@@ -32,7 +32,7 @@ const Services = () => {
             </div>
 
             {/* Service 2 */}
-            <div className="service-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300 cursor-pointer">
+            <div className="flex flex-col items-center justify-center service-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300 cursor-pointer">
               <FaTools className="text-4xl text-blue-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Car Repair Services</h3>
               <p className="text-gray-600 mb-4">Get your car in top shape with our trusted repair services. We work with the best mechanics in the industry.</p>
@@ -40,7 +40,7 @@ const Services = () => {
             </div>
 
             {/* Service 3 */}
-            <div className="service-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300 cursor-pointer">
+            <div className="flex flex-col items-center justify-center service-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300 cursor-pointer">
               <FaRegCreditCard className="text-4xl text-blue-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Financing Options</h3>
               <p className="text-gray-600 mb-4">Explore flexible financing options tailored to fit your budget. Get approved for your dream car today.</p>
@@ -48,7 +48,7 @@ const Services = () => {
             </div>
 
             {/* Service 4 */}
-            <div className="service-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300 cursor-pointer">
+            <div className="flex flex-col items-center justify-center service-card p-6 bg-gray-50 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300 cursor-pointer">
               <FaRegHandshake className="text-4xl text-blue-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Trade-In Services</h3>
               <p className="text-gray-600 mb-4">Trade in your old car and get an excellent deal for your next vehicle. We offer competitive trade-in values.</p>
