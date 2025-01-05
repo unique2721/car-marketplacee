@@ -63,8 +63,9 @@ const Cars = () => {
               className="w-full h-56 rounded-t-xl object-cover group-hover:brightness-90 transition-all duration-300"
             />
             <div className="p-6">
-              <h2 className="text-center font-semibold text-gray-800 text-xl mb-4">
+              <h2 className=" font-semibold text-gray-800 text-xl mb-4">
                 {car.name}
+                <h2>location goes here</h2>
               </h2>
               <div className=" flex flex-col justify-center items-center mb-6">
                 <div className='flex space-x-28 mb-2'>
