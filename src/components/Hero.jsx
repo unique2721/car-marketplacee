@@ -9,7 +9,7 @@ const Hero = () => {
           <h1 className="text-4xl lg:text-6xl font-extrabold leading-tight">
             Discover Your Dream Car with <span className="text-yellow-300">Ease</span>
           </h1>
-          <p className="text-lg lg:text-xl text-gray-200">
+          <p className="text-lg lg:text-xl text-gray-100">
             Find, compare, and connect with car sellers seamlessly using our advanced tools designed for your convenience.
           </p>
           <div className="flex justify-center lg:justify-start space-x-4">

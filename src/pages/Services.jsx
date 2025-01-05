@@ -1,6 +1,8 @@
 // src/pages/ServicesPage.jsx
 import React from 'react';
 import { FaCar, FaTools, FaRegCreditCard, FaRegHandshake } from 'react-icons/fa';
+/* images */
+import services from '../assets/services.jpg'
 /* components */
 import Navbar from '../components/Navbar';
 import Footer from './Footer';
