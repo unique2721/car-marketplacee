@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div>
       <Navbar/>
-      <CarFilter/>
+     {/*  <CarFilter/> */}
       <Hero/>
       <Category/>
       <Cars/>
