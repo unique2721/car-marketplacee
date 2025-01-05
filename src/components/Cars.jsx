@@ -66,18 +66,27 @@ const Cars = () => {
               <h2 className="text-center font-semibold text-gray-800 text-xl mb-4">
                 {car.name}
               </h2>
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="flex flex-col items-center text-gray-700 group-hover:text-blue-500 transition-colors duration-300">
+              <div className=" flex flex-col justify-center items-center mb-6">
+                <div className='flex space-x-28 mb-2'>
+                <div className="flex justify-center items-center gap-2 text-gray-700 group-hover:text-blue-500 transition-colors duration-300">
                   <LuFuel className="text-2xl mb-2" />
                   <p className="text-sm font-semibold">Miles</p>
                 </div>
-                <div className="flex flex-col items-center text-gray-700 group-hover:text-blue-500 transition-colors duration-300">
+                <div className="flex justify-center items-center gap-2 text-gray-700 group-hover:text-blue-500 transition-colors duration-300">
                   <RiSpeedUpLine className="text-2xl mb-2" />
                   <p className="text-sm font-semibold">Speed</p>
                 </div>
-                <div className="flex flex-col items-center text-gray-700 group-hover:text-blue-500 transition-colors duration-300">
+                </div>
+
+                <div className='flex space-x-28 mb-2'>
+                <div className="flex justify-center items-center gap-2 text-gray-700 group-hover:text-blue-500 transition-colors duration-300">
                   <BsGearWideConnected className="text-2xl mb-2" />
                   <p className="text-sm font-semibold">Gear</p>
+                </div>
+                <div className="flex justify-center items-center gap-2 text-gray-700 group-hover:text-blue-500 transition-colors duration-300">
+                  <BsGearWideConnected className="text-2xl mb-2" />
+                  <p className="text-sm font-semibold">Diesel</p>
+                </div>
                 </div>
               </div>
               <div className="flex justify-between items-center">
