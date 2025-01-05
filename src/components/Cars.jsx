@@ -13,7 +13,7 @@ const Cars = () => {
       <h2 className="font-bold text-4xl text-center text-gray-800 my-10">Most Searched Cars</h2>
       
       <div className="flex justify-center items-center mb-10">
-        <div className="relative w-full max-w-lg">
+        <div className=" flex md:hidden relative w-full max-w-lg">
           <input
             type="text"
             className="w-full px-6 py-3 bg-white border border-gray-300 rounded-full shadow-lg focus:outline-none"
