@@ -1,8 +1,11 @@
 // src/pages/AboutPage.jsx
 import React from 'react';
 import { FaCar, FaSearch, FaHandshake, FaUsers } from 'react-icons/fa';
-import Navbar from '../components/Navbar';
+/* images */
 import user from '../assets/user.jpg'
+/* components */
+import Navbar from '../components/Navbar';
+import Footer from './Footer';
 
 const About = () => {
   return (
@@ -90,6 +93,7 @@ const About = () => {
           <a href="mailto:contact@carmarketplace.com" className="px-6 py-3 bg-white text-blue-600 rounded-full hover:bg-gray-200 transition-all duration-300">Contact Us</a>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };

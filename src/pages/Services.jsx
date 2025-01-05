@@ -1,7 +1,10 @@
 // src/pages/ServicesPage.jsx
 import React from 'react';
 import { FaCar, FaTools, FaRegCreditCard, FaRegHandshake } from 'react-icons/fa';
+/* components */
 import Navbar from '../components/Navbar';
+import Footer from './Footer';
+
 const Services = () => {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -95,6 +98,7 @@ const Services = () => {
           <a href="mailto:contact@carmarketplace.com" className="px-6 py-3 bg-white text-blue-600 rounded-full hover:bg-gray-200 transition-all duration-300">Contact Us</a>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };
