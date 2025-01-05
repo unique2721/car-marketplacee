@@ -27,7 +27,7 @@ const Cars = () => {
       </h2>
 
       {/* Search Bar */}
-      <div className="flex justify-center items-center mb-10">
+      <div className="flex md:hidden justify-center items-center mb-10">
         <div className="relative w-full max-w-md">
           <input
             type="text"
