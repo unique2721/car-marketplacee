@@ -7,6 +7,7 @@ import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Services from './pages/Services.jsx'
 import Register from './pages/Register.jsx'
+import CarListing from './components/CarListing.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: '/register',
     element: <Register/>
+  },
+  {
+    path: '/carListing',
+    element: <CarListing/>
   },
  
 ])
