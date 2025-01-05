@@ -62,28 +62,60 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 bg-gray-100" id="team">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-12">Meet Our Team</h2>
-          <div className="flex flex-wrap justify-center gap-12">
-            <div className="team-member text-center">
-              <img src={user} alt="Team Member 1" className="w-32 h-32 rounded-full mx-auto mb-4" />
-              <h3 className="font-semibold text-xl mb-2">John Doe</h3>
-              <p className="text-gray-600">Founder & CEO</p>
-            </div>
-            <div className="team-member text-center">
-              <img src={user} alt="Team Member 2" className="w-32 h-32 rounded-full mx-auto mb-4" />
-              <h3 className="font-semibold text-xl mb-2">Jane Smith</h3>
-              <p className="text-gray-600">Chief Technology Officer</p>
-            </div>
-            <div className="team-member text-center">
-              <img src={user} alt="Team Member 3" className="w-32 h-32 rounded-full mx-auto mb-4" />
-              <h3 className="font-semibold text-xl mb-2">Alex Brown</h3>
-              <p className="text-gray-600">Marketing Lead</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="py-16 bg-gradient-to-b from-gray-100 to-gray-200" id="team">
+  <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+    <h2 className="text-4xl font-extrabold text-gray-800 mb-10">
+      Meet Our Team
+    </h2>
+    <p className="text-gray-600 text-lg mb-16 max-w-2xl mx-auto">
+      Our talented and dedicated team members are the backbone of our success.
+    </p>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+      {/* Team Member 1 */}
+      <div className="team-member text-center bg-white shadow-lg rounded-xl p-6 hover:shadow-2xl transition-shadow duration-300">
+        <img
+          src={user}
+          alt="John Doe"
+          className="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-blue-500"
+        />
+        <h3 className="text-2xl font-semibold text-gray-800 mb-1">John Doe</h3>
+        <p className="text-blue-600 font-medium mb-3">Founder & CEO</p>
+        <p className="text-gray-500 text-sm">
+          A visionary leader with a passion for innovation and excellence.
+        </p>
+      </div>
+
+      {/* Team Member 2 */}
+      <div className="team-member text-center bg-white shadow-lg rounded-xl p-6 hover:shadow-2xl transition-shadow duration-300">
+        <img
+          src={user}
+          alt="Jane Smith"
+          className="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-blue-500"
+        />
+        <h3 className="text-2xl font-semibold text-gray-800 mb-1">Jane Smith</h3>
+        <p className="text-blue-600 font-medium mb-3">Chief Technology Officer</p>
+        <p className="text-gray-500 text-sm">
+          Spearheading cutting-edge technology and ensuring seamless performance.
+        </p>
+      </div>
+
+      {/* Team Member 3 */}
+      <div className="team-member text-center bg-white shadow-lg rounded-xl p-6 hover:shadow-2xl transition-shadow duration-300">
+        <img
+          src={user}
+          alt="Alex Brown"
+          className="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-blue-500"
+        />
+        <h3 className="text-2xl font-semibold text-gray-800 mb-1">Alex Brown</h3>
+        <p className="text-blue-600 font-medium mb-3">Marketing Lead</p>
+        <p className="text-gray-500 text-sm">
+          Crafting impactful marketing strategies to reach and engage audiences.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
       <Footer/>
     </div>
   );
