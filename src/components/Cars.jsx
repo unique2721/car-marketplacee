@@ -94,7 +94,7 @@ const Cars = () => {
                 <h3 className="text-2xl font-bold text-gray-900">
                   1,000,000 ETB
                 </h3>
-                <h3 className="text-md text-blue-500 flex items-center gap-2 group-hover:underline">
+                <h3 className="text-md bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center gap-2">
                   View Details <MdOpenInNew />
                 </h3>
               </div>
