@@ -3,6 +3,7 @@ import React from 'react';
 import { FaCar, FaSearch, FaHandshake, FaUsers } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import user from '../assets/user.jpg'
+
 const About = () => {
   return (
     <div className="min-h-screen bg-gray-50">
