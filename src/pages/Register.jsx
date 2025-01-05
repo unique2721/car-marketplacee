@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import car from '../assets/car.jpg'
+import services from '../assets/services.jpg'
 const Register = () => {
   const [isSignUp, setIsSignUp] = useState(false);
 
@@ -210,9 +211,9 @@ const Register = () => {
         {/* Right Side (Car Image) */}
         <div className="hidden lg:block lg:w-1/2 pl-8">
           <img
-            src={car}
+            src={services}
             alt="Car"
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-full object-cover"
           />
         </div>
       </div>
