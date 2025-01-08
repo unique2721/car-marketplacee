@@ -168,28 +168,28 @@ const Navbar = ({ children }) => {
             >
               Register
             </Link> */}
-              <div className="sm:ml-6 flex flex-col space-y-4">
-            {user?.role === "seller" && (
+            <div className="sm:ml-6 flex flex-col space-y-4">
+              {user?.role === "seller" && (
+                <Link
+                  to={"/my-listings"}
+                  className="text-gray-700 hover:text-blue-600"
+                >
+                  My Listings
+                </Link>
+              )}
               <Link
-                to={"/my-listings"}
+                to={"/messages"}
                 className="text-gray-700 hover:text-blue-600"
               >
-                My Listings
+                Messages
               </Link>
-            )}
-            <Link
-              to={"/messages"}
-              className="text-gray-700 hover:text-blue-600"
-            >
-              Messages
-            </Link>
-            <div className="flex items-center space-x-4">
-              <ProfileDropdown
-                onLoginClick={handleLoginClick}
-                onRegisterClick={handleRegisterClick}
-              />
+              <div className="flex items-center space-x-4">
+                <ProfileDropdown
+                  onLoginClick={handleLoginClick}
+                  onRegisterClick={handleRegisterClick}
+                />
+              </div>
             </div>
-          </div>
             {user && (
               <Link
                 to={"/carListing"}
@@ -198,7 +198,6 @@ const Navbar = ({ children }) => {
                 Submit
               </Link>
             )}
-            
 
             <LoginModal
               isOpen={showLoginModal}
