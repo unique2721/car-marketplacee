@@ -38,7 +38,7 @@ const Navbar = ({ children }) => {
         </div>
 
         {/* Search Bar */}
-        <div className="hidden md:flex items-center w-1/2">
+        <div className="hidden lg:flex items-center w-1/2">
           <input
             type="text"
             placeholder="Search Make, Model, Year..."
