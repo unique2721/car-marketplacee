@@ -38,7 +38,7 @@ const Navbar = ({ children }) => {
         </div>
 
         {/* Search Bar */}
-        <div className="hidden lg:flex items-center w-1/2">
+        <div className="hidden lg:flex items-center w-[35%]">
           <input
             type="text"
             placeholder="Search Make, Model, Year..."
@@ -129,9 +129,9 @@ const Navbar = ({ children }) => {
           {user && (
             <Link
               to={"/carListing"}
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+              className="bg-blue-600 text-white px-2 py-1 rounded-md hover:bg-blue-700"
             >
-              Submit Listing
+              Submit
             </Link>
           )}
         </nav>
@@ -172,9 +172,9 @@ const Navbar = ({ children }) => {
             {user && (
               <Link
                 to={"/carListing"}
-                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                className="bg-blue-600 text-white px-6 py-1 rounded-md hover:bg-blue-700"
               >
-                Submit Listing
+                Submit
               </Link>
             )}
             <ProfileDropdown
