@@ -3,6 +3,7 @@ import React from 'react';
 import { FaCar, FaSearch, FaHandshake, FaUsers } from 'react-icons/fa';
 /* images */
 import user from '../assets/user.jpg'
+import Gebremariam from '../assets/Gebremariam.jpg'
 /* components */
 import Navbar from '../components/Navbar';
 import Footer from './Footer';
@@ -74,11 +75,11 @@ const About = () => {
       {/* Team Member 1 */}
       <div className="team-member text-center bg-white shadow-lg rounded-xl p-6 hover:shadow-2xl transition-shadow duration-300">
         <img
-          src={user}
+          src={Gebremariam}
           alt="John Doe"
           className="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-blue-500"
         />
-        <h3 className="text-2xl font-semibold text-gray-800 mb-1">John Doe</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-1">Gebremariam Kidane</h3>
         <p className="text-blue-600 font-medium mb-3">Founder & CEO</p>
         <p className="text-gray-500 text-sm">
           A visionary leader with a passion for innovation and excellence.
@@ -92,7 +93,7 @@ const About = () => {
           alt="Jane Smith"
           className="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-blue-500"
         />
-        <h3 className="text-2xl font-semibold text-gray-800 mb-1">Jane Smith</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-1">Yohannes Habtamu</h3>
         <p className="text-blue-600 font-medium mb-3">Chief Technology Officer</p>
         <p className="text-gray-500 text-sm">
           Spearheading cutting-edge technology and ensuring seamless performance.
@@ -106,7 +107,7 @@ const About = () => {
           alt="Alex Brown"
           className="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-blue-500"
         />
-        <h3 className="text-2xl font-semibold text-gray-800 mb-1">Alex Brown</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-1">Selhadin</h3>
         <p className="text-blue-600 font-medium mb-3">Marketing Lead</p>
         <p className="text-gray-500 text-sm">
           Crafting impactful marketing strategies to reach and engage audiences.
@@ -119,7 +120,7 @@ const About = () => {
           alt="Alex Brown"
           className="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-blue-500"
         />
-        <h3 className="text-2xl font-semibold text-gray-800 mb-1">Alex Brown</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-1">Dibekulu Alene</h3>
         <p className="text-blue-600 font-medium mb-3">Marketing Lead</p>
         <p className="text-gray-500 text-sm">
           Crafting impactful marketing strategies to reach and engage audiences.
