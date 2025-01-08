@@ -79,7 +79,7 @@ const Navbar = ({ children }) => {
             Register
           </Link> */}
 
-          <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+          <div className="hidden sm:ml-6 sm:flex sm:space-x-4">
             {user?.role === "seller" && (
               <Link
                 to={"/my-listings"}
@@ -94,18 +94,17 @@ const Navbar = ({ children }) => {
             >
               Messages
             </Link>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            {user && (
-              <button className="text-gray-600 hover:text-gray-900">
-                <MessageSquare className="h-6 w-6" />
-              </button>
-            )}
-            <ProfileDropdown
-              onLoginClick={handleLoginClick}
-              onRegisterClick={handleRegisterClick}
-            />
+            <div className="flex items-center space-x-4">
+              {user && (
+                <button className="text-gray-600 hover:text-gray-900">
+                  <MessageSquare className="h-6 w-6" />
+                </button>
+              )}
+              <ProfileDropdown
+                onLoginClick={handleLoginClick}
+                onRegisterClick={handleRegisterClick}
+              />
+            </div>
           </div>
 
           <LoginModal
@@ -169,6 +168,28 @@ const Navbar = ({ children }) => {
             >
               Register
             </Link> */}
+              <div className="sm:ml-6 flex flex-col space-y-4">
+            {user?.role === "seller" && (
+              <Link
+                to={"/my-listings"}
+                className="text-gray-700 hover:text-blue-600"
+              >
+                My Listings
+              </Link>
+            )}
+            <Link
+              to={"/messages"}
+              className="text-gray-700 hover:text-blue-600"
+            >
+              Messages
+            </Link>
+            <div className="flex items-center space-x-4">
+              <ProfileDropdown
+                onLoginClick={handleLoginClick}
+                onRegisterClick={handleRegisterClick}
+              />
+            </div>
+          </div>
             {user && (
               <Link
                 to={"/carListing"}
@@ -177,10 +198,7 @@ const Navbar = ({ children }) => {
                 Submit
               </Link>
             )}
-            <ProfileDropdown
-              onLoginClick={handleLoginClick}
-              onRegisterClick={handleRegisterClick}
-            />
+            
 
             <LoginModal
               isOpen={showLoginModal}
