@@ -2,11 +2,31 @@ import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+import { useAuth } from "../context/AuthContext";
+import { Car, MessageSquare } from "lucide-react";
+import LoginModal from "./auth/LoginModal";
+import RegisterModal from "./auth/RegisterModal";
+import ProfileDropdown from "./common/ProfileDropdown";
+
+const Navbar = ({ children }) => {
   const [nav, setNav] = useState(false);
 
   const handleNavToggle = () => {
     setNav(!nav);
+  };
+
+  const { user } = useAuth();
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
+
+  const handleLoginClick = () => {
+    setShowLoginModal(true);
+    setShowRegisterModal(false);
+  };
+
+  const handleRegisterClick = () => {
+    setShowRegisterModal(true);
+    setShowLoginModal(false);
   };
 
   return (
@@ -31,17 +51,89 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex gap-6 text-gray-700 items-center">
-          <Link to={'/'}  className="hover:text-blue-600">Home</Link>
-          <Link to={'/about'} className="hover:text-blue-600">About</Link>
-          <Link to={'/services'} className="hover:text-blue-600">Services</Link>
-          <Link to={'/contact'} className="hover:text-blue-600">Contact</Link>
-          <Link to={'/register'} className="hover:text-blue-600">Register</Link>
           <Link
-          to={'/carListing'}
-            className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+            to={"/"}
+            className="hover:text-blue-600 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
           >
-            Submit Listing
+            Home
           </Link>
+          <Link
+            to={"/about"}
+            className="hover:text-blue-600 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
+          >
+            About
+          </Link>
+          <Link
+            to={"/services"}
+            className="hover:text-blue-600 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
+          >
+            Services
+          </Link>
+          <Link
+            to={"/contact"}
+            className="hover:text-blue-600 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
+          >
+            Contact
+          </Link>
+          {/* <Link to={"/register"} className="hover:text-blue-600 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300">
+            Register
+          </Link> */}
+
+          <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+            {user?.role === "seller" && (
+              <Link
+                to={"/my-listings"}
+                className="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
+              >
+                My Listings
+              </Link>
+            )}
+            <Link
+              to={"/messages"}
+              className="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
+            >
+              Messages
+            </Link>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            {user && (
+              <button className="text-gray-600 hover:text-gray-900">
+                <MessageSquare className="h-6 w-6" />
+              </button>
+            )}
+            <ProfileDropdown
+              onLoginClick={handleLoginClick}
+              onRegisterClick={handleRegisterClick}
+            />
+          </div>
+
+          <LoginModal
+            isOpen={showLoginModal}
+            onClose={() => setShowLoginModal(false)}
+            onSwitchToRegister={() => {
+              setShowLoginModal(false);
+              setShowRegisterModal(true);
+            }}
+          />
+
+          <RegisterModal
+            isOpen={showRegisterModal}
+            onClose={() => setShowRegisterModal(false)}
+            onSwitchToLogin={() => {
+              setShowRegisterModal(false);
+              setShowLoginModal(true);
+            }}
+          />
+
+          {user && (
+            <Link
+              to={"/carListing"}
+              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+            >
+              Submit Listing
+            </Link>
+          )}
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -56,30 +148,61 @@ const Navbar = () => {
       {nav && (
         <div className="md:hidden bg-white shadow-md py-4 px-6">
           <div className="flex flex-col gap-4">
-            <Link to={'/'} href="/" className="text-gray-700 hover:text-blue-600">
+            <Link to={"/"} className="text-gray-700 hover:text-blue-600">
               Home
             </Link>
-            <Link to={'/about'} className="text-gray-700 hover:text-blue-600">
+            <Link to={"/about"} className="text-gray-700 hover:text-blue-600">
               About
             </Link>
-            <Link to= {"/services"} className="text-gray-700 hover:text-blue-600">
+            <Link
+              to={"/services"}
+              className="text-gray-700 hover:text-blue-600"
+            >
               Services
             </Link>
-            <Link to= {"/contact"} className="text-gray-700 hover:text-blue-600">
+            <Link to={"/contact"} className="text-gray-700 hover:text-blue-600">
               Contact
             </Link>
-            <Link to={"/register"} className="text-gray-700 hover:text-blue-600">
-              Register
-            </Link>
-            <Link
-              to= {"/carListing"}
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+            {/* <Link
+              to={"/register"}
+              className="text-gray-700 hover:text-blue-600"
             >
-              Submit Listing
-            </Link>
+              Register
+            </Link> */}
+            {user && (
+              <Link
+                to={"/carListing"}
+                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+              >
+                Submit Listing
+              </Link>
+            )}
+            <ProfileDropdown
+              onLoginClick={handleLoginClick}
+              onRegisterClick={handleRegisterClick}
+            />
+
+            <LoginModal
+              isOpen={showLoginModal}
+              onClose={() => setShowLoginModal(false)}
+              onSwitchToRegister={() => {
+                setShowLoginModal(false);
+                setShowRegisterModal(true);
+              }}
+            />
+
+            <RegisterModal
+              isOpen={showRegisterModal}
+              onClose={() => setShowRegisterModal(false)}
+              onSwitchToLogin={() => {
+                setShowRegisterModal(false);
+                setShowLoginModal(true);
+              }}
+            />
           </div>
         </div>
       )}
+      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">{children}</main>
     </header>
   );
 };

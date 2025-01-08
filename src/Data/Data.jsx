@@ -89,142 +89,338 @@ const Cars = [
   {
     id: 1,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 2,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 3,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 4,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 5,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 6,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 7,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 8,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 9,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 10,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 11,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 12,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 13,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 14,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 15,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 16,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 17,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 18,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 19,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 20,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 21,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 22,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 23,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 24,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 25,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 26,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 27,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
   {
     id: 28,
     img: tesla,
-    name: 'Audi A3 1.6 TDI S line'
+    name: 'Audi A3 1.6 TDI S line',
+    images: [tesla],
+    make: "make",
+    model: "model",
+    year: "year",
+    color: "color",
+    fuel: "fuel",
+    price: 1000000
   },
 ]
 

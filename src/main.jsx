@@ -8,6 +8,7 @@ import Contact from './pages/Contact.jsx'
 import Services from './pages/Services.jsx'
 import Register from './pages/Register.jsx'
 import CarListing from './components/CarListing.jsx'
+import { AuthProvider } from './context/AuthContext.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -38,6 +39,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <AuthProvider>
+
   <RouterProvider router={router}/>
+    </AuthProvider>
   </StrictMode>
 )

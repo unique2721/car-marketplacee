@@ -1,5 +1,5 @@
 import React from "react";
-import tesla from '../assets/tesla.png'
+import tesla from "../assets/tesla.png";
 const Hero = () => {
   return (
     <section className="relative bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 text-white overflow-hidden mt-20">
@@ -7,20 +7,18 @@ const Hero = () => {
         {/* Left Content */}
         <div className="lg:w-1/2 space-y-6 text-center lg:text-left">
           <h1 className="text-4xl lg:text-6xl font-extrabold leading-tight">
-            Discover Your Dream Car with <span className="text-yellow-300">Ease</span>
+            Discover Your Dream Car with{" "}
+            <span className="text-yellow-300">Ease</span>
           </h1>
           <p className="text-lg lg:text-xl text-gray-100">
-            Find, compare, and connect with car sellers seamlessly using our advanced tools designed for your convenience.
+            Find, compare, and connect with car sellers seamlessly using our
+            advanced tools designed for your convenience.
           </p>
           <div className="flex justify-center lg:justify-start space-x-4">
-            <button
-              className=" text-white px-6 py-3 bg-blue-600 rounded-lg font-semibold shadow-md hover:bg-blue-700 hover:scale-105 transition-transform duration-300"
-            >
+            <button className=" text-white px-6 py-3 bg-blue-600 rounded-lg font-semibold shadow-md hover:bg-blue-700 hover:scale-105 transition-transform duration-300">
               Get Started
             </button>
-            <button
-              className="px-6 py-3 border border-gray-200 text-gray-200 rounded-lg font-semibold hover:bg-gray-100 hover:text-gray-900 hover:scale-105 transition-transform duration-300"
-            >
+            <button className="px-6 py-3 border border-gray-200 text-gray-200 rounded-lg font-semibold hover:bg-gray-100 hover:text-gray-900 hover:scale-105 transition-transform duration-300">
               Learn More
             </button>
           </div>
