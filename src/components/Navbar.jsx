@@ -53,25 +53,25 @@ const Navbar = ({ children }) => {
         <nav className="hidden md:flex gap-6 text-gray-700 items-center">
           <Link
             to={"/"}
-            className="hover:text-blue-600 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
+            className=" text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
           >
             Home
           </Link>
           <Link
             to={"/about"}
-            className="hover:text-blue-600 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
+            className=" text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
           >
             About
           </Link>
           <Link
             to={"/services"}
-            className="hover:text-blue-600 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
+            className=" text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
           >
             Services
           </Link>
           <Link
             to={"/contact"}
-            className="hover:text-blue-600 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
+            className=" text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
           >
             Contact
           </Link>
