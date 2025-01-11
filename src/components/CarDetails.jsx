@@ -112,7 +112,7 @@ export default function CarDetails({ listing, onClose }) {
                 {listing.price.toLocaleString()} ETB
               </span>
             </div>
-            <button className="inline-flex items-center px-4 py-3 border border-transparent text-base font-medium rounded-md text-white   text-md bg-blue-600 hover:bg-blue-700 ">
+            <button className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white   text-md bg-blue-600 hover:bg-blue-700 ">
               Contact Seller
             </button>
           </div>
