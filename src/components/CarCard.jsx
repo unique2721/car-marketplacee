@@ -30,7 +30,7 @@ export default function CarCard({ listing, onViewDetails }) {
         </div>
         <div className="mt-4 flex justify-between items-center">
           <span className="text-2xl font-bold text-indigo-600">
-            ${listing.price.toLocaleString()}
+            {listing.price.toLocaleString()} ETB
           </span>
           <h3 onClick={() => onViewDetails(listing.id)} className="text-md bg-blue-600 hover:bg-blue-700 text-white px-2 py-2 rounded-md flex items-center gap-2">
                   View Details <MdOpenInNew />
