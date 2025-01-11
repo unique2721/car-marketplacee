@@ -81,8 +81,6 @@ const CarMakes=[
             "id": 20,
             "name": "Volvo"
         }
-    
-    
 ]
 
 const Cars = [
