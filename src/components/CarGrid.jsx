@@ -33,7 +33,7 @@ export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-24 ">
+      <div className="flex justify-center flex-wrap gap-8 mx-4 ">
         {currentListings.map((listing) => (
           <CarCard
             key={listing.id}
