@@ -61,7 +61,7 @@ export default function CarDetails({ listing, onClose }) {
           <div className="mt-6 flex justify-between items-center">
             <div>
               <span className="text-3xl font-bold text-indigo-600">
-                ${listing.price.toLocaleString()}
+                {listing.price.toLocaleString()} ETB
               </span>
             </div>
             <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
