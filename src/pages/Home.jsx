@@ -9,7 +9,6 @@ import Category from "../components/Category";
 import Cars from "../components/Cars";
 import Footer from "./Footer";
 import RegisterModal from "../components/auth/RegisterModal";
-import CarCard from "../components/CarCard";
 import CarGrid from "../components/CarGrid";
 import CarDetails from "../components/CarDetails";
 import { mockListings } from "../Data/mockData";
