@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import CarCard from './CarCard';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from "react";
+import CarCard from "./CarCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { FaSearch } from "react-icons/fa";
 
 export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
@@ -21,8 +21,8 @@ export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
 
   return (
     <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen py-16">
-        {/* Search Bar */}
-        <div className="flex md:hidden justify-center items-center mb-10">
+      {/* Search Bar */}
+      <div className="flex md:hidden justify-center items-center mb-10">
         <div className="relative w-full max-w-md">
           <input
             type="text"
@@ -36,9 +36,8 @@ export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
       <div className="flex justify-center items-center flex-wrap gap-8 mx-4 ">
         {currentListings.map((listing) => (
           <CarCard
-          className="w-full sm:w-72 md:w-80 lg:w-96 bg-white rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-xl cursor-pointer group relative"
+            className="w-full sm:w-72 md:w-80 lg:w-96 bg-white rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-xl cursor-pointer group relative"
             data-aos="fade-up"
-          
             key={listing.id}
             listing={listing}
             onViewDetails={onViewDetails}
