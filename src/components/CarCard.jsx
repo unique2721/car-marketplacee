@@ -1,5 +1,6 @@
-import React from 'react';
-import { Calendar, MapPin, Gauge } from 'lucide-react';
+import React from "react";
+import { Calendar, MapPin, Gauge } from "lucide-react";
+import { MdOpenInNew } from "react-icons/md";
 
 export default function CarCard({ listing, onViewDetails }) {
   return (
@@ -31,12 +32,9 @@ export default function CarCard({ listing, onViewDetails }) {
           <span className="text-2xl font-bold text-indigo-600">
             ${listing.price.toLocaleString()}
           </span>
-          <button 
-            onClick={() => onViewDetails(listing.id)}
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
-          >
-            View Details
-          </button>
+          <h3 onClick={() => onViewDetails(listing.id)} className="text-md bg-blue-600 hover:bg-blue-700 text-white px-2 py-2 rounded-md flex items-center gap-2">
+                  View Details <MdOpenInNew />
+                </h3>
         </div>
       </div>
     </div>
