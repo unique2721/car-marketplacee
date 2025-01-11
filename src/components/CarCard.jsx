@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Calendar, MapPin, Gauge } from "lucide-react";
 import { MdOpenInNew } from "react-icons/md";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { FaSearch } from "react-icons/fa";
 
 export default function CarCard({ listing, onViewDetails }) {
-
   const [favorites, setFavorites] = useState([]);
 
   // Toggle favorite status
@@ -18,16 +18,28 @@ export default function CarCard({ listing, onViewDetails }) {
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-[1.02] cursor-pointer">
-         <div
-              className="absolute top-4 right-4 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-red-100 transition-all duration-300"
-              onClick={() => toggleFavorite(listing.id)}
-            >
-              {favorites.includes(listing.id) ? (
-                <AiFillHeart className="text-red-500 text-xl" />
-              ) : (
-                <AiOutlineHeart className="text-gray-500 text-xl" />
-              )}
-            </div>
+      {/* Search Bar */}
+      <div className="flex md:hidden justify-center items-center mb-10">
+        <div className="relative w-full max-w-md">
+          <input
+            type="text"
+            className="w-full px-6 py-3 bg-white border border-gray-300 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+            placeholder="Search cars..."
+          />
+          <FaSearch className="absolute top-1/2 right-4 transform -translate-y-1/2 text-gray-500" />
+        </div>
+      </div>
+
+      <div
+        className="absolute top-4 right-4 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-red-100 transition-all duration-300"
+        onClick={() => toggleFavorite(listing.id)}
+      >
+        {favorites.includes(listing.id) ? (
+          <AiFillHeart className="text-red-500 text-xl" />
+        ) : (
+          <AiOutlineHeart className="text-gray-500 text-xl" />
+        )}
+      </div>
       <img
         src={listing.images[0]}
         alt={`${listing.make} ${listing.model}`}
@@ -55,9 +67,12 @@ export default function CarCard({ listing, onViewDetails }) {
           <span className="text-2xl font-bold text-indigo-600">
             {listing.price.toLocaleString()} ETB
           </span>
-          <h3 onClick={() => onViewDetails(listing.id)} className="text-md bg-blue-600 hover:bg-blue-700 text-white px-2 py-2 rounded-md flex items-center gap-2">
-                  View Details <MdOpenInNew />
-                </h3>
+          <h3
+            onClick={() => onViewDetails(listing.id)}
+            className="text-md bg-blue-600 hover:bg-blue-700 text-white px-2 py-2 rounded-md flex items-center gap-2"
+          >
+            View Details <MdOpenInNew />
+          </h3>
         </div>
       </div>
     </div>
