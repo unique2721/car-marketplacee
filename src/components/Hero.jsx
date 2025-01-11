@@ -1,5 +1,6 @@
 import React from "react";
 import tesla from "../assets/tesla.png";
+import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <section className="relative bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 text-white overflow-hidden mt-20">
@@ -18,9 +19,9 @@ const Hero = () => {
             <button className=" text-white px-6 py-3 bg-blue-600 rounded-lg font-semibold shadow-md hover:bg-blue-700 hover:scale-105 transition-transform duration-300">
               Get Started
             </button>
-            <button className="px-6 py-3 border border-gray-200 text-gray-200 rounded-lg font-semibold hover:bg-gray-100 hover:text-gray-900 hover:scale-105 transition-transform duration-300">
+            <Link to={'/about'} className="px-6 py-3 border border-gray-200 text-gray-200 rounded-lg font-semibold hover:bg-gray-100 hover:text-gray-900 hover:scale-105 transition-transform duration-300">
               Learn More
-            </button>
+            </Link>
           </div>
         </div>
 
