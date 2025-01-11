@@ -36,6 +36,8 @@ export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
       <div className="flex justify-center items-center flex-wrap gap-8 mx-4 ">
         {currentListings.map((listing) => (
           <CarCard
+          className="w-full sm:w-72 md:w-80 lg:w-96 bg-white rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-xl cursor-pointer group relative"
+            data-aos="fade-up"
           
             key={listing.id}
             listing={listing}
