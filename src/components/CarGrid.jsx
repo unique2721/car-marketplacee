@@ -20,7 +20,7 @@ export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
   };
 
   return (
-    <div className="space-y-8 ">
+    <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen py-16">
         {/* Search Bar */}
         <div className="flex md:hidden justify-center items-center mb-10">
         <div className="relative w-full max-w-md">
@@ -33,9 +33,10 @@ export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
         </div>
       </div>
 
-      <div className="flex justify-center flex-wrap gap-8 mx-4 ">
+      <div className="flex justify-center items-center flex-wrap gap-8 mx-4 ">
         {currentListings.map((listing) => (
           <CarCard
+          
             key={listing.id}
             listing={listing}
             onViewDetails={onViewDetails}

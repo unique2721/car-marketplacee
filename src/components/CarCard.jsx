@@ -17,8 +17,7 @@ export default function CarCard({ listing, onViewDetails }) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-[1.02] cursor-pointer">
-
+    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-[1.02] cursor-pointer ">
       <div
         className="absolute top-4 right-4 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-red-100 transition-all duration-300"
         onClick={() => toggleFavorite(listing.id)}
