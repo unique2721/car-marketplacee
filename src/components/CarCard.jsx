@@ -1,10 +1,33 @@
-import React from "react";
+import React, {useState} from "react";
 import { Calendar, MapPin, Gauge } from "lucide-react";
 import { MdOpenInNew } from "react-icons/md";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 export default function CarCard({ listing, onViewDetails }) {
+
+  const [favorites, setFavorites] = useState([]);
+
+  // Toggle favorite status
+  const toggleFavorite = (carId) => {
+    setFavorites((prevFavorites) =>
+      prevFavorites.includes(carId)
+        ? prevFavorites.filter((id) => id !== carId)
+        : [...prevFavorites, carId]
+    );
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-[1.02] cursor-pointer">
+         <div
+              className="absolute top-4 right-4 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-red-100 transition-all duration-300"
+              onClick={() => toggleFavorite(listing.id)}
+            >
+              {favorites.includes(listing.id) ? (
+                <AiFillHeart className="text-red-500 text-xl" />
+              ) : (
+                <AiOutlineHeart className="text-gray-500 text-xl" />
+              )}
+            </div>
       <img
         src={listing.images[0]}
         alt={`${listing.make} ${listing.model}`}
