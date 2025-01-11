@@ -12,7 +12,7 @@ export default function CarDetails({ listing, onClose }) {
             </h2>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-500"
+              className="text-gray-400 hover:text-red-700"
             >
               <X className="h-6 w-6" />
             </button>
