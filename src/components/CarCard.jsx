@@ -4,7 +4,7 @@ import { MdOpenInNew } from "react-icons/md";
 
 export default function CarCard({ listing, onViewDetails }) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-[1.02] ">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-[1.02] cursor-pointer">
       <img
         src={listing.images[0]}
         alt={`${listing.make} ${listing.model}`}
