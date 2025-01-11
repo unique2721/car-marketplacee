@@ -59,7 +59,7 @@ export default function CarCard({ listing, onViewDetails }) {
             onClick={() => onViewDetails(listing.id)}
             className="text-md bg-blue-600 hover:bg-blue-700 text-white px-2 py-2 rounded-md flex items-center gap-2"
           >
-            View Details <MdOpenInNew />
+            View Details <MdOpenInNew/>
           </h3>
         </div>
       </div>
