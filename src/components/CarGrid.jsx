@@ -38,6 +38,7 @@ export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
           <CarCard
             className="w-full sm:w-72 md:w-80 lg:w-96 bg-white rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-xl cursor-pointer group relative"
             data-aos="fade-up"
+            data-aos-delay={`${listing.id * 100}`}
             key={listing.id}
             listing={listing}
             onViewDetails={onViewDetails}
@@ -46,7 +47,7 @@ export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
       </div>
 
       {listings.length > itemsPerPage && (
-        <div className="flex justify-center items-center space-x-4">
+        <div className="flex justify-center items-center space-x-4 mt-6">
           <button
             onClick={handlePrevPage}
             disabled={currentPage === 1}
