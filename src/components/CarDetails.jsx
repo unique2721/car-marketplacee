@@ -3,17 +3,28 @@ import { X, Calendar, MapPin, Gauge, Check } from 'lucide-react';
 
 export default function CarDetails({ listing, onClose }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isSliding, setIsSliding] = useState(false);
 
   const handleNextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === listing.images.length - 1 ? 0 : prevIndex + 1
-    );
+    if (isSliding) return;
+    setIsSliding(true);
+    setTimeout(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === listing.images.length - 1 ? 0 : prevIndex + 1
+      );
+      setIsSliding(false);
+    }, 300); // Duration matches the CSS animation
   };
 
   const handlePrevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? listing.images.length - 1 : prevIndex - 1
-    );
+    if (isSliding) return;
+    setIsSliding(true);
+    setTimeout(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === 0 ? listing.images.length - 1 : prevIndex - 1
+      );
+      setIsSliding(false);
+    }, 300); // Duration matches the CSS animation
   };
 
   return (
@@ -32,13 +43,23 @@ export default function CarDetails({ listing, onClose }) {
             </button>
           </div>
 
-          {/* Image Carousel */}
-          <div className="mt-6 relative">
-            <img
-              src={listing.images[currentImageIndex]}
-              alt={`${listing.make} ${listing.model}`}
-              className="w-full h-96 object-cover rounded-lg"
-            />
+          {/* Image Carousel with Animation */}
+          <div className="mt-6 relative overflow-hidden">
+            <div
+              className="flex transition-transform duration-300"
+              style={{
+                transform: `translateX(-${currentImageIndex * 100}%)`,
+              }}
+            >
+              {listing.images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`${listing.make} ${listing.model}`}
+                  className="w-full h-96 object-cover flex-shrink-0"
+                />
+              ))}
+            </div>
             <button
               onClick={handlePrevImage}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70"
