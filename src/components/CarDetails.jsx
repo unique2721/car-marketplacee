@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, Calendar, MapPin, Gauge, Check } from 'lucide-react';
+import React, { useState } from "react";
+import { X, Calendar, MapPin, Gauge, Check } from "lucide-react";
 
 export default function CarDetails({ listing, onClose }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -112,7 +112,7 @@ export default function CarDetails({ listing, onClose }) {
                 {listing.price.toLocaleString()} ETB
               </span>
             </div>
-            <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+            <button className="inline-flex items-center px-4 py-3 border border-transparent text-base font-medium rounded-md text-white   text-md bg-blue-600 hover:bg-blue-700 ">
               Contact Seller
             </button>
           </div>
