@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Calendar, MapPin, Gauge } from "lucide-react";
 import { MdOpenInNew } from "react-icons/md";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { FaSearch } from "react-icons/fa";
 
 export default function CarCard({ listing, onViewDetails }) {
   const [favorites, setFavorites] = useState([]);

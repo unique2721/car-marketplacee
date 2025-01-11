@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { X, Calendar, MapPin, Gauge, Check } from 'lucide-react';
 
 export default function CarDetails({ listing, onClose }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === listing.images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? listing.images.length - 1 : prevIndex - 1
+    );
+  };
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
@@ -17,13 +31,26 @@ export default function CarDetails({ listing, onClose }) {
               <X className="h-6 w-6" />
             </button>
           </div>
-          
-          <div className="mt-6">
+
+          {/* Image Carousel */}
+          <div className="mt-6 relative">
             <img
-              src={listing.images[0]}
+              src={listing.images[currentImageIndex]}
               alt={`${listing.make} ${listing.model}`}
               className="w-full h-96 object-cover rounded-lg"
             />
+            <button
+              onClick={handlePrevImage}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70"
+            >
+              ❮
+            </button>
+            <button
+              onClick={handleNextImage}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70"
+            >
+              ❯
+            </button>
           </div>
 
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
