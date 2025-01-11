@@ -18,17 +18,6 @@ export default function CarCard({ listing, onViewDetails }) {
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-[1.02] cursor-pointer">
-      {/* Search Bar */}
-      <div className="flex md:hidden justify-center items-center mb-10">
-        <div className="relative w-full max-w-md">
-          <input
-            type="text"
-            className="w-full px-6 py-3 bg-white border border-gray-300 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
-            placeholder="Search cars..."
-          />
-          <FaSearch className="absolute top-1/2 right-4 transform -translate-y-1/2 text-gray-500" />
-        </div>
-      </div>
 
       <div
         className="absolute top-4 right-4 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-red-100 transition-all duration-300"

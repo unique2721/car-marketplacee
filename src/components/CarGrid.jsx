@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CarCard from './CarCard';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { FaSearch } from "react-icons/fa";
 
 export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,7 +21,19 @@ export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
 
   return (
     <div className="space-y-8 ">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-24">
+        {/* Search Bar */}
+        <div className="flex md:hidden justify-center items-center mb-10">
+        <div className="relative w-full max-w-md">
+          <input
+            type="text"
+            className="w-full px-6 py-3 bg-white border border-gray-300 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+            placeholder="Search cars..."
+          />
+          <FaSearch className="absolute top-1/2 right-4 transform -translate-y-1/2 text-gray-500" />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-24 ">
         {currentListings.map((listing) => (
           <CarCard
             key={listing.id}
