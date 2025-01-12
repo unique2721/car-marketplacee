@@ -29,7 +29,7 @@ export default function CarDetails({ listing, onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] overflow-y-auto">
         <div className="p-6">
           <div className="flex justify-between items-start">
             <h2 className="text-2xl font-bold text-gray-900">
@@ -76,21 +76,6 @@ export default function CarDetails({ listing, onClose }) {
                 </button>
               </div>
 
-              {/*   <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="flex items-center text-gray-600">
-              <Calendar className="h-5 w-5 mr-2" />
-              <span>{listing.year}</span>
-            </div>
-            <div className="flex items-center text-gray-600">
-              <MapPin className="h-5 w-5 mr-2" />
-              <span>{listing.location}</span>
-            </div>
-            <div className="flex items-center text-gray-600">
-              <Gauge className="h-5 w-5 mr-2" />
-              <span>{listing.mileage.toLocaleString()} miles</span>
-            </div>
-          </div> */}
-
               {/* description */}
               <div className="mt-6">
                 <h3 className="text-lg font-semibold mb-2">Description</h3>
@@ -99,7 +84,7 @@ export default function CarDetails({ listing, onClose }) {
               {/* Features */}
               <div className="mt-6">
                 <h3 className="text-lg font-semibold mb-2">Features</h3>
-                <ul className="grid grid-cols-2 gap-2">
+                <ul className="grid grid-cols-2 gap-6">
                   {listing.features.map((feature, index) => (
                     <li key={index} className="flex items-center text-gray-600">
                       <Check className="h-5 w-5 mr-2 text-green-500" />
@@ -153,6 +138,27 @@ export default function CarDetails({ listing, onClose }) {
                       <span>Location</span>
                     </div>
                     <span className="font-medium">{listing.location}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-gray-600">
+                      <MapPin className="h-5 w-5 mr-3 text-gray-400" />
+                      <span>Color</span>
+                    </div>
+                    <span className="font-medium">{listing.color}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-gray-600">
+                      <MapPin className="h-5 w-5 mr-3 text-gray-400" />
+                      <span>Fuel</span>
+                    </div>
+                    <span className="font-medium">{listing.fuel}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-gray-600">
+                      <MapPin className="h-5 w-5 mr-3 text-gray-400" />
+                      <span>Transmission</span>
+                    </div>
+                    <span className="font-medium">{listing.transmission}</span>
                   </div>
                 </div>
               </div>
