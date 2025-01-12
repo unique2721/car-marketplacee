@@ -51,7 +51,7 @@ export default function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-             className=" w-full p-2 mt-2 border focus:outline-none focus:ring-2  block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              className=" w-full p-2 mt-2 border focus:outline-none focus:ring-2  block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               required
             />
           </div>
