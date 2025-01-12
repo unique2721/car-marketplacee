@@ -34,7 +34,7 @@ const Hero = () => {
             <img
               src={tesla}
               alt="Car Showcase"
-              className="w-full rounded-lg shadow-lg transform transition-transform duration-700 ease-in-out group-hover:scale-105 group-hover:rotate-1 group-hover:translate-y-[-10px]"
+              className="w-full rounded-lg p-8 shadow-lg transform transition-transform duration-700 ease-in-out group-hover:scale-105 group-hover:rotate-1 group-hover:translate-y-[-80px]"
             />
             {/* Floating Highlights */}
             <div className="absolute top-[-30px] left-[-20px] bg-white text-indigo-600 p-3 rounded-lg shadow-lg">
