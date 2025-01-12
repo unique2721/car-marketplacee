@@ -3,7 +3,7 @@ import { Calendar, MapPin, Gauge } from "lucide-react";
 import { MdOpenInNew } from "react-icons/md";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
-export default function CarCard({ listing, onViewDetails }) {
+const CarCard = ({ listing, onViewDetails }) => {
   const getStatusBadge = (status, year) => {
     const currentYear = new Date().getFullYear();
     let badgeClass = "";
@@ -99,4 +99,6 @@ export default function CarCard({ listing, onViewDetails }) {
       </div>
     </div>
   );
-}
+};
+
+export default CarCard;
