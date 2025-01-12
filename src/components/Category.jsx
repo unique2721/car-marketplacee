@@ -19,7 +19,7 @@ const Category = () => {
             className="border rounded-xl p-3 flex flex-col items-center hover:shadow-md cursor-pointer"
           >
             <img className=" bg-white" src={category.icon} alt="brand" width={35} height={35} />
-            <h2 className="mt-2 text-white font-bold">{category.name}</h2>
+            <h2 className="mt-2 text-white font-semibold">{category.name}</h2>
           </div>
         ))}
       </div>
