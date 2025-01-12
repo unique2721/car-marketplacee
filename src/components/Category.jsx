@@ -16,7 +16,7 @@ const Category = () => {
         {Data.Category.map((category, index) => (
           <div
             key={index}
-            className="border bg-white text-black rounded-xl p-3 flex flex-col items-center hover:shadow-md cursor-pointer"
+            className="border bg-white text-black rounded-xl p-3 flex flex-col items-center hover:shadow-md hover:bg-slate-100 cursor-pointer"
           >
             <img
               className=" bg-white"
