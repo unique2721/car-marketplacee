@@ -20,7 +20,7 @@ export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
   };
 
   return (
-    <div className="bg-gradient-to-b from-black to-slate-800 min-h-screen py-16">
+    <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen py-10">
       {/* Search Bar */}
       <div className="flex md:hidden justify-center items-center mb-10">
         <div className="relative w-full max-w-md">
