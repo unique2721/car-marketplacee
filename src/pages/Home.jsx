@@ -43,7 +43,7 @@ const Home = () => {
         />
       )}
 
-      <Cars />
+      {/* <Cars /> */}
       <Footer />
     </div>
   );
