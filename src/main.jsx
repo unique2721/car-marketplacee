@@ -10,6 +10,7 @@ import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Services from "./pages/Services.jsx";
 import Contact from "./pages/Contact.jsx";
+import FAQ from "./pages/FAQ.JSX";
 import CarListing from "./components/CarListing.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <Contact />,
+  },
+  {
+    path: "/faq",
+    element: <FAQ />,
   },
   {
     path: "/carListing",
