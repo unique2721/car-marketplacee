@@ -98,7 +98,7 @@ export default function CarDetails({ listing, onClose }) {
             {/* Right Column */}
             <div className="space-y-6">
               {/* Price */}
-              <div className="bg-gray-50 rounded-lg">
+              <div className="bg-gray-50 py-6 rounded-lg">
                 <h3 className="text-3xl font-bold text-indigo-600 mb-2">
                   ${listing.price.toLocaleString()}
                 </h3>
