@@ -12,7 +12,10 @@ const Services = () => {
     <div className="min-h-screen bg-gray-50">
       <Navbar/>
       {/* Hero Section */}
-      <section className="relative w-full h-[60vh] bg-cover bg-center" style={{ backgroundImage: "url('https://example.com/car-services-hero.jpg')" }}>
+      <section className="relative w-full h-[60vh] bg-cover bg-center" style={{
+        backgroundImage:
+          "url(https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1920)",
+      }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 flex items-center justify-center text-center text-white">
           <div className="max-w-lg px-4">
