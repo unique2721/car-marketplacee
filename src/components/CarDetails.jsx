@@ -104,7 +104,7 @@ export default function CarDetails({ listing, onClose }) {
                 </h3>
                 <button className="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center mt-4">
                   <Phone className="h-5 w-5 mr-2" />
-                  Call Seller
+                  <a href="tel:+251912345678">Call Seller</a>
                 </button>
                 <h1 className=" font-bold text-center py-4">Or Contact Seller Via</h1>
                 <div className="flex justify-center items-center flex-wrap gap-2">
