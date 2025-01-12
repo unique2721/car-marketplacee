@@ -25,7 +25,7 @@ const RegisterModal = ({ isOpen, onClose, onSwitchToLogin }) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="bg-white p-6 rounded-lg max-w-md w-full">
+      <div className="bg-white px-8 py-6 rounded-lg max-w-md w-full">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl font-bold text-gray-900">Register</h2>
           <button
@@ -53,7 +53,7 @@ const RegisterModal = ({ isOpen, onClose, onSwitchToLogin }) => {
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              className=" w-full p-2 mt-2 border focus:outline-none focus:ring-2  block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               required
             />
           </div>
@@ -70,7 +70,7 @@ const RegisterModal = ({ isOpen, onClose, onSwitchToLogin }) => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+             className=" w-full p-2 mt-2 border focus:outline-none focus:ring-2  block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               required
             />
           </div>
@@ -87,7 +87,7 @@ const RegisterModal = ({ isOpen, onClose, onSwitchToLogin }) => {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              className=" w-full p-2 mt-2 border focus:outline-none focus:ring-2  block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               required
             />
           </div>
