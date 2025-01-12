@@ -33,8 +33,10 @@ const Navbar = ({ children }) => {
     <header className="bg-white shadow-md fixed top-0 left-0 w-full z-10">
       <div className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
-        <div className="text-2xl font-bold text-blue-600">
-          <a href="/">CarHub</a>
+        <div className=" flex gap-2 text-2xl font-bold text-blue-600">
+          
+        <Car className="h-8 w-8 text-indigo-600" />
+          <Link to={"/"}>CarHub</Link>
         </div>
 
         {/* Search Bar */}
