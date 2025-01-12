@@ -3,7 +3,7 @@ import tesla from "../assets/tesla.png";
 import { Link } from "react-router-dom";
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 text-white overflow-hidden mt-20">
+    <section className="relative bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 text-white overflow-hidden pt-10">
       <div className="container mx-auto px-6 py-20 lg:py-32 flex flex-col gap-10 lg:flex-row items-center">
         {/* Left Content */}
         <div className="lg:w-1/2 space-y-6 text-center lg:text-left">

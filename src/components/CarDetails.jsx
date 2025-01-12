@@ -106,7 +106,6 @@ export default function CarDetails({ listing, onClose }) {
             </ul>
           </div>
 
-
           {/* <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="text-3xl font-bold text-indigo-600 mb-2">
               ${listing.price.toLocaleString()}

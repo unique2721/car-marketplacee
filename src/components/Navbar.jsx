@@ -34,8 +34,7 @@ const Navbar = ({ children }) => {
       <div className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <div className=" flex gap-2 text-2xl font-bold text-blue-600">
-          
-        <Car className="h-8 w-8 text-blue-700" />
+          <Car className="h-8 w-8 text-blue-700" />
           <Link to={"/"}>CarHub</Link>
         </div>
 
@@ -53,28 +52,16 @@ const Navbar = ({ children }) => {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex gap-6 text-gray-700 items-center">
-          <Link
-            to={"/"}
-            className=" text-gray-700 hover:text-blue-600"
-          >
+          <Link to={"/"} className=" text-gray-700 hover:text-blue-600">
             Home
           </Link>
-          <Link
-            to={"/about"}
-            className=" text-gray-700 hover:text-blue-600"
-          >
+          <Link to={"/about"} className=" text-gray-700 hover:text-blue-600">
             About
           </Link>
-          <Link
-            to={"/services"}
-            className=" text-gray-700 hover:text-blue-600"
-          >
+          <Link to={"/services"} className=" text-gray-700 hover:text-blue-600">
             Services
           </Link>
-          <Link
-            to={"/contact"}
-            className=" text-gray-700 hover:text-blue-600"
-          >
+          <Link to={"/contact"} className=" text-gray-700 hover:text-blue-600">
             Contact
           </Link>
           {/* <Link to={"/register"} className="hover:text-blue-600 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300">
@@ -179,27 +166,29 @@ const Navbar = ({ children }) => {
                   My Listings
                 </Link>
               )}
-              <Link
-                to={"/messages"}
-                className="text-gray-700 hover:text-blue-600"
-              >
-                Messages
-              </Link>
-              <div className="flex items-center space-x-4">
+              <div className="flex justify-between items-center">
+                <Link
+                  to={"/messages"}
+                  className="text-gray-700 hover:text-blue-600"
+                >
+                  Messages
+                </Link>
+
                 <ProfileDropdown
                   onLoginClick={handleLoginClick}
                   onRegisterClick={handleRegisterClick}
                 />
               </div>
+
+              {user && (
+                <Link
+                  to={"/carListing"}
+                  className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 w-full text-center font-bold"
+                >
+                  Sell Your Car
+                </Link>
+              )}
             </div>
-            {user && (
-              <Link
-                to={"/carListing"}
-                className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700"
-              >
-                Submit
-              </Link>
-            )}
 
             <LoginModal
               isOpen={showLoginModal}
@@ -221,7 +210,6 @@ const Navbar = ({ children }) => {
           </div>
         </div>
       )}
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">{children}</main>
     </header>
   );
 };
