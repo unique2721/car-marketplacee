@@ -124,10 +124,6 @@ export default function CarDetails({ listing, onClose }) {
                     Instagram
                   </button>
                 </div>
-                {/*   <button className="w-full border border-indigo-600 text-indigo-600 py-3 px-6 rounded-lg hover:bg-indigo-50 transition-colors flex items-center justify-center mt-3">
-                  <Mail className="h-5 w-5 mr-2" />
-                  Email Seller
-                </button> */}
               </div>
 
               {/* Specifications */}
@@ -180,39 +176,14 @@ export default function CarDetails({ listing, onClose }) {
                   </div>
                 </div>
               </div>
-               {/* Compare Button */}
-               <button
+              {/* Compare Button */}
+              <button
                 onClick={() => onCompare(listing)}
                 className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Compare This Car
               </button>
             </div>
-
-            {/* <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-3xl font-bold text-indigo-600 mb-2">
-              ${listing.price.toLocaleString()}
-            </h3>
-            <button className="w-full border border-indigo-600 order-transparent text-base font-medium rounded-md text-white   text-md bg-blue-600 hover:bg-blue-700 py-3 px-6 transition-colors flex items-center justify-center mt-3">
-              <Phone className="h-5 w-5 mr-2" />
-              Contact Seller
-            </button>
-            <button className="w-full border border-indigo-600 order-transparent text-base font-medium rounded-md text-white   text-md bg-blue-600 hover:bg-blue-700 py-3 px-6 transition-colors flex items-center justify-center mt-3">
-              <Mail className="h-5 w-5 mr-2" />
-              Email Seller
-            </button>
-          </div> */}
-
-            {/*   <div className="mt-6 flex justify-between items-center">
-            <div>
-              <span className="text-3xl font-bold text-indigo-600">
-                {listing.price.toLocaleString()} ETB
-              </span>
-            </div>
-            <button className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white   text-md bg-blue-600 hover:bg-blue-700 ">
-              Contact Seller
-            </button>
-          </div> */}
           </div>
         </div>
       </div>
