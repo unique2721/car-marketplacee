@@ -30,7 +30,6 @@ const Home = () => {
       <Navbar />
       {/*  <CarFilter/> */}
       <Hero />
-      <SearchFilters />
       <Category />
       <CarGrid
         listings={mockListings}
