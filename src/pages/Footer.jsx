@@ -1,7 +1,13 @@
 // src/components/Footer.jsx
-import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React from "react";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin,
+  FaEnvelope,
+} from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -12,21 +18,22 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4">Car Marketplace</h3>
             <p className="text-gray-400 mb-4">
-              The best place to find your dream car, browse listings, and get unbeatable deals from trusted dealers.
+              The best place to find your dream car, browse listings, and get
+              unbeatable deals from trusted dealers.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-blue-500">
+              <Link to={"/"} className="text-gray-400 hover:text-blue-500">
                 <FaFacebook className="text-2xl" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-500">
+              </Link>
+              <Link to={"/"} className="text-gray-400 hover:text-blue-500">
                 <FaTwitter className="text-2xl" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-500">
+              </Link>
+              <Link to={"/"} className="text-gray-400 hover:text-blue-500">
                 <FaInstagram className="text-2xl" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-500">
+              </Link>
+              <Link to={"/"} className="text-gray-400 hover:text-blue-500">
                 <FaLinkedin className="text-2xl" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -35,19 +42,57 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to={'/'} className="text-gray-400 hover:text-white">Home</Link>
+                <Link to={"/"} className="text-gray-400 hover:text-white">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to={'/about'} className="text-gray-400 hover:text-white">About Us</Link>
+                <Link to={"/about"} className="text-gray-400 hover:text-white">
+                  About Us
+                </Link>
               </li>
               <li>
-                <Link to={'/services'} className="text-gray-400 hover:text-white">Our Services</Link>
+                <Link
+                  to={"/services"}
+                  className="text-gray-400 hover:text-white"
+                >
+                  Our Services
+                </Link>
               </li>
               <li>
-                <Link to={''} className="text-gray-400 hover:text-white">Cars for Sale</Link>
+                <Link to={""} className="text-gray-400 hover:text-white">
+                  Cars for Sale
+                </Link>
               </li>
               <li>
-                <Link to={'/contact'} className="text-gray-400 hover:text-white">Contact Us</Link>
+                <Link
+                  to={"/contact"}
+                  className="text-gray-400 hover:text-white"
+                >
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Support */}
+          <div>
+            <h3 className="text-xl font-semibold mb-4">Support</h3>
+            <ul className="space-y-1 text-sm">
+              <li>
+                <Link to={"/"} className="text-gray-400 hover:text-white">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link to={"/"} className="text-gray-400 hover:text-white">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to={"/"} className="text-gray-400 hover:text-white">
+                  Terms of Service
+                </Link>
               </li>
             </ul>
           </div>
@@ -55,7 +100,10 @@ const Footer = () => {
           {/* Newsletter Signup Section */}
           <div>
             <h3 className="text-xl font-semibold mb-4">Newsletter Signup</h3>
-            <p className="text-gray-400 mb-4">Subscribe to our newsletter for the latest updates, deals, and more.</p>
+            <p className="text-gray-400 mb-4">
+              Subscribe to our newsletter for the latest updates, deals, and
+              more.
+            </p>
             <form className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
               <input
                 type="email"
