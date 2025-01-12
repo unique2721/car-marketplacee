@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { X, Calendar, MapPin, Gauge, Check, Phone, Mail } from "lucide-react";
-
+import CarGrid from "./CarGrid";
+import { mockListings } from "../Data/mockData";
 export default function CarDetails({ listing, onClose }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isSliding, setIsSliding] = useState(false);
+  const [compareListing, setCompareListing] = useState(null);
+  const [showCompareModal, setShowCompareModal] = useState(false);
 
   const handleNextImage = () => {
     if (isSliding) return;
@@ -25,6 +28,17 @@ export default function CarDetails({ listing, onClose }) {
       );
       setIsSliding(false);
     }, 300); // Duration matches the CSS animation
+  };
+
+  /* CAR COMPARISON */
+  const handleSelectCompareCar = (carId) => {
+    const selectedCar = listing.find((car) => car.id === carId);
+    setCompareListing(selectedCar);
+    setShowCompareModal(false);
+  };
+
+  const handleViewDetails = (id) => {
+    setSelectedListing(id);
   };
 
   return (
@@ -178,12 +192,41 @@ export default function CarDetails({ listing, onClose }) {
               </div>
               {/* Compare Button */}
               <button
-                onClick={() => onCompare(listing)}
+                onClick={() => setShowCompareModal(true)}
                 className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Compare This Car
               </button>
             </div>
+            {showCompareModal && (
+              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                <div className="bg-white rounded-lg p-6 w-full max-w-lg">
+                  <h2 className="text-lg font-bold mb-4">
+                    Select a Car to Compare
+                  </h2>
+                  <CarGrid
+                    listings={mockListings}
+                    itemsPerPage={6}
+                    onViewDetails={handleViewDetails}
+                  />
+                  <ul>
+                    <li
+                      key={listing.id}
+                      className="p-3 border-b border-gray-200 cursor-pointer hover:bg-gray-100"
+                      onClick={() => handleSelectCompareCar(listing.id)}
+                    >
+                      {listing.year} {listing.make} {listing.model}
+                    </li>
+                  </ul>
+                  <button
+                    onClick={() => setShowCompareModal(false)}
+                    className="mt-4 w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

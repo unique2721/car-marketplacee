@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { X, Calendar, MapPin, Gauge, Check, Phone } from "lucide-react";
+import CarGrid from "./CarGrid";
+import { mockListings } from "../Data/mockData";
 
 export default function CarDetails({ listing, onClose, carList }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -30,11 +32,18 @@ export default function CarDetails({ listing, onClose, carList }) {
   };
 
   const handleSelectCompareCar = (carId) => {
-    const selectedCar = carList.find((car) => car.id === carId);
+    const selectedCar = listing.find((car) => car.id === carId);
     setCompareListing(selectedCar);
     setShowCompareModal(false);
   };
 
+
+/* CAR COMPARISON */
+  const handleViewDetails = (id) => {
+    setSelectedListing(id);
+  };
+
+  
   const renderCarDetails = (car) => (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div>
@@ -111,7 +120,9 @@ export default function CarDetails({ listing, onClose, carList }) {
                 <Gauge className="h-5 w-5 mr-3 text-gray-400" />
                 <span>Mileage</span>
               </div>
-              <span className="font-medium">{car.mileage.toLocaleString()} miles</span>
+              <span className="font-medium">
+                {car.mileage.toLocaleString()} miles
+              </span>
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center text-gray-600">
@@ -164,16 +175,17 @@ export default function CarDetails({ listing, onClose, carList }) {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 w-full max-w-lg">
             <h2 className="text-lg font-bold mb-4">Select a Car to Compare</h2>
+            <CarGrid listings={mockListings}
+        itemsPerPage={6}
+        onViewDetails={handleViewDetails}/>
             <ul>
-              {carList.map((car) => (
-                <li
-                  key={car.id}
-                  className="p-3 border-b border-gray-200 cursor-pointer hover:bg-gray-100"
-                  onClick={() => handleSelectCompareCar(car.id)}
-                >
-                  {car.year} {car.make} {car.model}
-                </li>
-              ))}
+              <li
+                key={listing.id}
+                className="p-3 border-b border-gray-200 cursor-pointer hover:bg-gray-100"
+                onClick={() => handleSelectCompareCar(listing.id)}
+              >
+                {listing.year} {listing.make} {listing.model}
+              </li>
             </ul>
             <button
               onClick={() => setShowCompareModal(false)}

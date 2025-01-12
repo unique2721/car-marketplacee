@@ -11,6 +11,7 @@ import Footer from "./Footer";
 import RegisterModal from "../components/auth/RegisterModal";
 import CarGrid from "../components/CarGrid";
 import CarDetails from "../components/CarDetails";
+import CarComparison from "../components/CarComparison";
 import { mockListings } from "../Data/mockData";
 import SearchFilters from "../components/SearchFilters";
 
@@ -42,7 +43,6 @@ const Home = () => {
           onClose={() => setSelectedListing(null)}
         />
       )}
-
       {/* <Cars /> */}
       <Footer />
     </div>
