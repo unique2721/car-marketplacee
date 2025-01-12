@@ -100,7 +100,7 @@ export default function CarDetails({ listing, onClose }) {
               {/* Price */}
               <div className="bg-gray-50 py-6 rounded-lg">
                 <h3 className="text-3xl font-bold text-indigo-600 mb-2">
-                  ${listing.price.toLocaleString()}
+                  {listing.price.toLocaleString()} ETB
                 </h3>
                 <button className="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center mt-4">
                   <Phone className="h-5 w-5 mr-2" />
