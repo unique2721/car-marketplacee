@@ -35,7 +35,7 @@ const Navbar = ({ children }) => {
         {/* Logo */}
         <div className=" flex gap-2 text-2xl font-bold text-blue-600">
           
-        <Car className="h-8 w-8 text-indigo-600" />
+        <Car className="h-8 w-8 text-blue-700" />
           <Link to={"/"}>CarHub</Link>
         </div>
 
