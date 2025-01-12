@@ -1,6 +1,8 @@
 import React from "react";
 import tesla from "../assets/tesla.png";
 import { Link } from "react-router-dom";
+import AdvancedFilters from "./filters/AdvancedFilters";
+import SearchFilters from "./SearchFilters";
 const Hero = () => {
   return (
     <section className="relative bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 text-white overflow-hidden pt-10">
@@ -44,6 +46,17 @@ const Hero = () => {
           </div>
         </div>
       </div>
+     
+
+      {/* fade in bounce */}
+       <div className="absolute bottom-2 left-0 right-0 flex justify-center">
+          <div className="animate-bounce">
+            <div className="w-8 h-14 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+              <div className="w-1 h-3 bg-white/60 rounded-full animate-scroll" />
+            </div>
+          </div>
+        </div>
+       
 
       {/* Decorative Shapes */}
       <div className="absolute inset-0 pointer-events-none">

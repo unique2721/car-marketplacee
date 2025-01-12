@@ -12,6 +12,7 @@ import RegisterModal from "../components/auth/RegisterModal";
 import CarGrid from "../components/CarGrid";
 import CarDetails from "../components/CarDetails";
 import { mockListings } from "../Data/mockData";
+import SearchFilters from "../components/SearchFilters";
 
 const Home = () => {
   const [selectedListing, setSelectedListing] = useState(null);
@@ -29,6 +30,7 @@ const Home = () => {
       <Navbar />
       {/*  <CarFilter/> */}
       <Hero />
+      <SearchFilters />
       <Category />
       <CarGrid
         listings={mockListings}
