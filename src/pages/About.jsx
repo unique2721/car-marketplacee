@@ -22,7 +22,7 @@ const About = () => {
           <div className="max-w-lg px-4">
             <h1 className="text-4xl font-bold leading-tight mb-4">Welcome to the Best Car Marketplace</h1>
             <p className="text-lg mb-6">Find your dream car today with ease. Browse through the best car listings, get unbeatable deals, and much more!</p>
-            <a href="#features" className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300">Discover More</a>
+            <a href="#features" className=" px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300">Discover More</a>
           </div>
         </div>
       </section>
