@@ -51,7 +51,7 @@ const Hero = () => {
       {/* fade in bounce */}
        <div className="absolute bottom-2 left-0 right-0 flex justify-center">
           <div className="animate-bounce">
-            <div className="w-8 h-14 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+            <div className="w-8 h-14 border-2 border-white/30 rounded-full flex items-start justify-center">
               <div className="w-1 h-3 bg-white/60 rounded-full animate-scroll" />
             </div>
           </div>
