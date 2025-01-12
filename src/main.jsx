@@ -1,47 +1,44 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router-dom'
-import './index.css'
-import Home from './pages/Home.jsx'
-import About from './pages/About.jsx'
-import Contact from './pages/Contact.jsx'
-import Services from './pages/Services.jsx'
-import Register from './pages/Register.jsx'
-import CarListing from './components/CarListing.jsx'
-import { AuthProvider } from './context/AuthContext.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import "./index.css";
+import Home from "./pages/Home.jsx";
+import About from "./pages/About.jsx";
+import Services from "./pages/Services.jsx";
+import Contact from "./pages/Contact.jsx";
+import CarListing from "./components/CarListing.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Home/>
+    path: "/",
+    element: <Home />,
   },
   {
-    path: '/about',
-    element: <About/>
+    path: "/about",
+    element: <About />,
   },
   {
-    path: '/services',
-    element: <Services/>
+    path: "/services",
+    element: <Services />,
   },
   {
-    path: '/contact',
-    element: <Contact/>
+    path: "/contact",
+    element: <Contact />,
   },
   {
-    path: '/register',
-    element: <Register/>
+    path: "/carListing",
+    element: <CarListing />,
   },
-  {
-    path: '/carListing',
-    element: <CarListing/>
-  },
- 
-])
+]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-
-  <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>
-)
+);

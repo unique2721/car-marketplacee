@@ -64,6 +64,9 @@ const Navbar = ({ children }) => {
           <Link to={"/contact"} className=" text-gray-700 hover:text-blue-600">
             Contact
           </Link>
+          <Link to={"/faq"} className=" text-gray-700 hover:text-blue-600">
+            FAQ
+          </Link>
           {/* <Link to={"/register"} className="hover:text-blue-600 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300">
             Register
           </Link> */}
@@ -150,6 +153,9 @@ const Navbar = ({ children }) => {
             </Link>
             <Link to={"/contact"} className="text-gray-700 hover:text-blue-600">
               Contact
+            </Link>
+            <Link to={"/faq"} className="text-gray-700 hover:text-blue-600">
+              FAQ
             </Link>
             {/* <Link
               to={"/register"}
