@@ -23,7 +23,7 @@ const Category = () => {
           </div>
         ))}
       </div>
-      <SearchFilters/>
+      <SearchFilters />
     </div>
   );
 };
