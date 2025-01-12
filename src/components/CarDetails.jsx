@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { X, Calendar, MapPin, Gauge, Check } from "lucide-react";
+import { X, Calendar, MapPin, Gauge, Check, Phone, Mail } from "lucide-react";
 
 export default function CarDetails({ listing, onClose }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -105,6 +105,21 @@ export default function CarDetails({ listing, onClose }) {
               ))}
             </ul>
           </div>
+
+
+          {/* <div className="bg-gray-50 p-6 rounded-lg">
+            <h3 className="text-3xl font-bold text-indigo-600 mb-2">
+              ${listing.price.toLocaleString()}
+            </h3>
+            <button className="w-full border border-indigo-600 order-transparent text-base font-medium rounded-md text-white   text-md bg-blue-600 hover:bg-blue-700 py-3 px-6 transition-colors flex items-center justify-center mt-3">
+              <Phone className="h-5 w-5 mr-2" />
+              Contact Seller
+            </button>
+            <button className="w-full border border-indigo-600 order-transparent text-base font-medium rounded-md text-white   text-md bg-blue-600 hover:bg-blue-700 py-3 px-6 transition-colors flex items-center justify-center mt-3">
+              <Mail className="h-5 w-5 mr-2" />
+              Email Seller
+            </button>
+          </div> */}
 
           <div className="mt-6 flex justify-between items-center">
             <div>

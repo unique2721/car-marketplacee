@@ -140,7 +140,7 @@ const Footer = () => {
 
         {/* Footer Bottom Section */}
         <div className="mt-12 border-t border-gray-700 pt-6 text-center text-gray-400">
-          <p>&copy; 2025 Car Marketplace. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Car Marketplace. All rights reserved.</p>
         </div>
       </div>
     </footer>
