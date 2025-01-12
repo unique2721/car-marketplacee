@@ -4,6 +4,38 @@ import { MdOpenInNew } from "react-icons/md";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 export default function CarCard({ listing, onViewDetails }) {
+  const getStatusBadge = (status, year) => {
+    const currentYear = new Date().getFullYear();
+    let badgeClass = "";
+    let label = "";
+
+    // Determine status and styling
+    if (status === "sold") {
+      badgeClass = "bg-red-100 text-red-800";
+      label = "Sold";
+    } else if (status === "pending") {
+      badgeClass = "bg-yellow-100 text-yellow-800";
+      label = "Pending";
+    } else if (year === currentYear) {
+      badgeClass = "bg-green-100 text-green-800";
+      label = "New";
+    } else if (year <= currentYear - 5) {
+      badgeClass = "bg-gray-100 text-gray-800";
+      label = "Used";
+    } else {
+      badgeClass = "bg-blue-100 text-blue-800";
+      label = "Available";
+    }
+
+    return (
+      <span
+        className={`absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-medium ${badgeClass}`}
+      >
+        {label}
+      </span>
+    );
+  };
+
   const [favorites, setFavorites] = useState([]);
 
   // Toggle favorite status
@@ -18,7 +50,7 @@ export default function CarCard({ listing, onViewDetails }) {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 cursor-pointer group relative ">
       <div
-        className="absolute top-4 right-4 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-red-100 transition-all duration-300"
+        className="absolute top-4 left-4 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-red-100 transition-all duration-300"
         onClick={() => toggleFavorite(listing.id)}
       >
         {favorites.includes(listing.id) ? (
@@ -27,6 +59,7 @@ export default function CarCard({ listing, onViewDetails }) {
           <AiOutlineHeart className="text-gray-500 text-xl" />
         )}
       </div>
+      {getStatusBadge(listing.status, listing.year)}
       <img
         src={listing.images[0]}
         alt={`${listing.make} ${listing.model}`}
@@ -59,7 +92,8 @@ export default function CarCard({ listing, onViewDetails }) {
             onClick={() => onViewDetails(listing.id)}
             className="text-md bg-blue-600 hover:bg-blue-700 text-white px-2 py-2 rounded-md flex items-center gap-1"
           >
-            View Details<MdOpenInNew/>
+            View Details
+            <MdOpenInNew />
           </h3>
         </div>
       </div>

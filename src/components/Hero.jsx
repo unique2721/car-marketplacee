@@ -46,7 +46,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-     
 
       {/* fade in bounce */}
        <div className="absolute bottom-2 left-0 right-0 flex justify-center">
