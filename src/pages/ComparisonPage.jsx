@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import { mockListings } from "../Data/mockData";
 import { Check, Search } from "lucide-react";
-import Navbar from "../components/Navbar";
-
-export default function ComparisonPage({ listing, onClose }) {
+import Navbar from '../components/Navbar'
+export default function ComparisonPage() {
   const [car1, setCar1] = useState(null);
   const [car2, setCar2] = useState(null);
   const [search1, setSearch1] = useState("");
   const [search2, setSearch2] = useState("");
   const [showDropdown1, setShowDropdown1] = useState(false);
   const [showDropdown2, setShowDropdown2] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isSliding, setIsSliding] = useState(false);
 
   const filteredCars1 = mockListings.filter((car) =>
     `${car.make} ${car.model} ${car.year}`
@@ -37,32 +34,10 @@ export default function ComparisonPage({ listing, onClose }) {
     setShowDropdown2(false);
   };
 
-  /* images */
-  const handleNextImage = () => {
-    if (isSliding) return;
-    setIsSliding(true);
-    setTimeout(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === car1.images.length - 1 ? 0 : prevIndex + 1
-      );
-      setIsSliding(false);
-    }, 300); // Duration matches the CSS animation
-  };
-
-  const handlePrevImage = () => {
-    if (isSliding) return;
-    setIsSliding(true);
-    setTimeout(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === 0 ? car1.images.length - 1 : prevIndex - 1
-      );
-      setIsSliding(false);
-    }, 300); // Duration matches the CSS animation
-  };
-
   return (
     <>
       <Navbar />
+
       <div className="container mx-auto px-4 mt-24">
         <h1 className="text-3xl font-bold mb-8">Compare Cars</h1>
 
@@ -132,50 +107,31 @@ export default function ComparisonPage({ listing, onClose }) {
           {/* Comparison Content */}
           {(car1 || car2) && (
             <>
-              {/* Image Carousel with Animation */}
-              <div className="mt-6 relative overflow-hidden">
-                <div
-                  className="flex transition-transform duration-300"
-                  style={{
-                    transform: `translateX(-${currentImageIndex * 100}%)`,
-                  }}
-                >
-                  {car1.images.map((image, index) => (
-                    <img
-                      key={index}
-                      src={image}
-                      alt={`${car1.make} ${car1.model}`}
-                      className="w-full h-96 object-cover flex-shrink-0"
-                    />
-                  ))}
-                </div>
-              </div>
-              <button
-                onClick={handlePrevImage}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70"
-              >
-                ❮
-              </button>
-              <button
-                onClick={handleNextImage}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70"
-              >
-                ❯
-              </button>
-
+              {/* Images */}
               <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                {car1.images.map((image, index) => (
+                {car1 ? (
                   <img
-                    key={index}
-                    src={image}
+                    src={car1.images[0]}
                     alt={`${car1.make} ${car1.model}`}
-                    className="w-full h-96 object-cover flex-shrink-0"
+                    className="w-full h-full object-cover"
                   />
-                ))}
                 ) : (
-                <div className="w-full h-full flex items-center justify-center text-gray-400">
-                  Select a car
-                </div>
+                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                    Select a car
+                  </div>
+                )}
+              </div>
+              <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                {car2 ? (
+                  <img
+                    src={car2.images[0]}
+                    alt={`${car2.make} ${car2.model}`}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                    Select a car
+                  </div>
                 )}
               </div>
 
