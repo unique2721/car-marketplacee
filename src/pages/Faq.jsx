@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "./Footer";
 
-const FAQ = () => {
+const Faq = () => {
   return (
     <>
       <Navbar />
@@ -14,4 +14,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default Faq;
