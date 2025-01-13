@@ -8,6 +8,7 @@ export default function CarDetails({ listing, onClose, carList }) {
   const [isSliding, setIsSliding] = useState(false);
   const [compareListing, setCompareListing] = useState(null);
   const [showCompareModal, setShowCompareModal] = useState(false);
+  const [selectedListing, setSelectedListing] = useState(null);
 
   const handleNextImage = () => {
     if (isSliding) return;
@@ -31,19 +32,23 @@ export default function CarDetails({ listing, onClose, carList }) {
     }, 300);
   };
 
+  // const handleSelectCompareCar = (carId) => {
+  //   const selectedCar = listing.find((car) => car.id === carId);
+  //   setCompareListing(selectedCar);
+  //   setShowCompareModal(false);
+  // };
+
   const handleSelectCompareCar = (carId) => {
-    const selectedCar = listing.find((car) => car.id === carId);
+    const selectedCar = mockListings.find((car) => car.id === carId);
     setCompareListing(selectedCar);
     setShowCompareModal(false);
   };
 
-
-/* CAR COMPARISON */
+  /* CAR COMPARISON */
   const handleViewDetails = (id) => {
     setSelectedListing(id);
   };
 
-  
   const renderCarDetails = (car) => (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div>
@@ -175,9 +180,11 @@ export default function CarDetails({ listing, onClose, carList }) {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 w-full max-w-lg">
             <h2 className="text-lg font-bold mb-4">Select a Car to Compare</h2>
-            <CarGrid listings={mockListings}
-        itemsPerPage={6}
-        onViewDetails={handleViewDetails}/>
+            <CarGrid
+              listings={mockListings}
+              itemsPerPage={6}
+              onViewDetails={handleViewDetails}
+            />
             <ul>
               <li
                 key={listing.id}

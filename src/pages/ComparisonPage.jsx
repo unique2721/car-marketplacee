@@ -38,7 +38,6 @@ export default function ComparisonPage() {
   return (
     <>
       <Navbar />
-
       <div className="container mx-auto px-4 mt-24">
         <h1 className="text-3xl font-bold mb-8">Compare Cars</h1>
 
