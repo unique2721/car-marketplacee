@@ -11,7 +11,7 @@ import ComparisonPage from "./pages/ComparisonPage.jsx";
 import About from "./pages/About.jsx";
 import Services from "./pages/Services.jsx";
 import Contact from "./pages/Contact.jsx";
-import FAQ from "./pages/Faq.jsx";
+import Faq from "./pages/Faq.jsx";
 import CarListing from "./components/CarListing.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 const router = createBrowserRouter([
