@@ -21,7 +21,10 @@ const Hero = () => {
             <button className=" text-white px-6 py-3 bg-blue-600 rounded-lg font-semibold shadow-md hover:bg-blue-700 hover:scale-105 transition-transform duration-300">
               Get Started
             </button>
-            <Link to={'/about'} className="px-6 py-3 border border-gray-200 text-gray-200 rounded-lg font-semibold hover:bg-gray-100 hover:text-gray-900 hover:scale-105 transition-transform duration-300">
+            <Link
+              to={"/about"}
+              className="px-6 py-3 border border-gray-200 text-gray-200 rounded-lg font-semibold hover:bg-gray-100 hover:text-gray-900 hover:scale-105 transition-transform duration-300"
+            >
               Learn More
             </Link>
           </div>
@@ -48,14 +51,13 @@ const Hero = () => {
       </div>
 
       {/* fade in bounce */}
-       <div className="absolute bottom-2 left-0 right-0 flex justify-center">
-          <div className="animate-bounce">
-            <div className="w-8 h-14 border-2 border-white/30 rounded-full flex items-start justify-center">
-              <div className="w-1 h-3 bg-white/60 rounded-full animate-scroll" />
-            </div>
+      <div className="absolute bottom-2 left-0 right-0 flex justify-center">
+        <div className="animate-bounce">
+          <div className="w-8 h-14 border-2 border-white/30 rounded-full flex items-start justify-center">
+            <div className="w-1 h-3 bg-white/60 rounded-full animate-scroll" />
           </div>
         </div>
-       
+      </div>
 
       {/* Decorative Shapes */}
       <div className="absolute inset-0 pointer-events-none">
