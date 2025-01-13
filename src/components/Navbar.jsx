@@ -145,6 +145,9 @@ const Navbar = ({ children }) => {
             <Link to={"/"} className="text-gray-700 hover:text-blue-600">
               Home
             </Link>
+            <Link to={"/carComparison"} className=" text-gray-700 hover:text-blue-600">
+            Compare
+          </Link>
             <Link to={"/about"} className="text-gray-700 hover:text-blue-600">
               About
             </Link>
