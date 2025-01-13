@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { mockListings } from "../Data/mockData";
 import { Check, Search } from "lucide-react";
-import Navbar from '../components/Navbar'
+import Navbar from "../components/Navbar";
 export default function ComparisonPage() {
   const [car1, setCar1] = useState(null);
   const [car2, setCar2] = useState(null);
@@ -37,10 +37,8 @@ export default function ComparisonPage() {
   return (
     <>
       <Navbar />
-
       <div className="container mx-auto px-4 mt-24">
         <h1 className="text-3xl font-bold mb-8">Compare Cars</h1>
-
         <div className="grid grid-cols-2 gap-8">
           {/* Car Selection 1 */}
           <div className="space-y-2 relative">
