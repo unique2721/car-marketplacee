@@ -290,15 +290,16 @@ export default function CarDetails({ listing, onClose }) {
                   </div>
                 </div>
               </div>
+             
               {/* Compare Button */}
-              {renderCarDetails(listing)}
+              {/* {renderCarDetails(listing)}
 
               {compareListing && (
                 <>
                   <hr className="my-6 border-gray-200" />
                   {renderCarDetails(compareListing)}
                 </>
-              )}
+              )} */}
 
               <button
                 onClick={() => setShowCompareModal(true)}

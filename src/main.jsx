@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import Home from "./pages/Home.jsx";
-import CarComparison from './pages/CarComparison.jsx'
+import ComparisonPage from "./pages/ComparisonPage.jsx";
 import About from "./pages/About.jsx";
 import Services from "./pages/Services.jsx";
 import Contact from "./pages/Contact.jsx";
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/carComparison",
-    element: <CarComparison />,
+    element: <ComparisonPage />,
   },
   {
     path: "/about",
