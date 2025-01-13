@@ -22,8 +22,8 @@ const Category = () => {
               className=" bg-white"
               src={category.icon}
               alt="brand"
-              width={35}
-              height={35}
+              width={20}
+              height={20}
             />
             <h2 className="mt-2 font-semibold">{category.name}</h2>
           </div>
