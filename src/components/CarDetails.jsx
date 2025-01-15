@@ -189,6 +189,20 @@ export default function CarDetails({ listing, onClose }) {
                   ❯
                 </button>
               </div>
+               {/* Thumbnails */}
+              <div className="flex mt-4 gap-2">
+                {listing.images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`Thumbnail ${index + 1}`}
+                    className={`h-16 w-16 object-cover border-2 rounded ${
+                      index === currentImageIndex ? "border-blue-500" : "border-gray-200"
+                    } cursor-pointer`}
+                    onClick={() => handleThumbnailClick(index)}
+                  />
+                ))}
+              </div>
 
               {/* description */}
               <div className="mt-6">
