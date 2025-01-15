@@ -7,7 +7,6 @@ export default function CarDetails({ listing, onClose }) {
   const [isSliding, setIsSliding] = useState(false);
   const [compareListing, setCompareListing] = useState(null);
   const [showCompareModal, setShowCompareModal] = useState(false);
-  const [selectCarToCompare, setSetSelectCarToCompare] = useState(false);
 
   const handleNextImage = () => {
     if (isSliding) return;
@@ -303,9 +302,7 @@ export default function CarDetails({ listing, onClose }) {
               )} */}
 
               <button
-                onClick={() =>
-                  setShowCompareModal(true) && setSetSelectCarToCompare(true)
-                }
+                onClick={() => setShowCompareModal(true)}
                 className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Compare This Car
@@ -335,10 +332,7 @@ export default function CarDetails({ listing, onClose }) {
                     </li>
                   </ul> */}
                   <button
-                    onClick={() =>
-                      setShowCompareModal(false) &&
-                      setSetSelectCarToCompare(false)
-                    }
+                    onClick={() => setShowCompareModal(false)}
                     className="mt-4 w-full bg-red-600 text-white py-2 px-2 rounded-lg hover:bg-red-700"
                   >
                     Cancel
