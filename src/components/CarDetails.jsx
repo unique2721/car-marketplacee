@@ -7,6 +7,7 @@ export default function CarDetails({ listing, onClose }) {
   const [isSliding, setIsSliding] = useState(false);
   const [compareListing, setCompareListing] = useState(null);
   const [showCompareModal, setShowCompareModal] = useState(false);
+  const [selectCarToCompare, setSetSelectCarToCompare] = useState(false);
 
   const handleNextImage = () => {
     if (isSliding) return;
@@ -46,7 +47,7 @@ export default function CarDetails({ listing, onClose }) {
   const selectedCar = mockListings.find(
     (listing) => listing.id === selectedListing
   );
-  
+
   const renderCarDetails = (car) => (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div>
@@ -290,7 +291,7 @@ export default function CarDetails({ listing, onClose }) {
                   </div>
                 </div>
               </div>
-             
+
               {/* Compare Button */}
               {/* {renderCarDetails(listing)}
 
@@ -302,7 +303,9 @@ export default function CarDetails({ listing, onClose }) {
               )} */}
 
               <button
-                onClick={() => setShowCompareModal(true)}
+                onClick={() =>
+                  setShowCompareModal(true) && setSetSelectCarToCompare(true)
+                }
                 className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Compare This Car
@@ -311,15 +314,17 @@ export default function CarDetails({ listing, onClose }) {
             {/* car comparison */}
             {showCompareModal && (
               <div className=" absolute top-12  bg-black bg-opacity-50 flex items-center justify-center z-50">
-                <div className=" relative  bg-white rounded-lg p-6 w-full max-w-lg">
+                <div className=" relative  bg-white rounded-lg p-6 w-full max-w-lg overflow-hidden max-h-[90vh]">
                   <h2 className="text-lg font-bold my-4 text-center">
                     Select a Car to Compare
                   </h2>
-                  <CarGrid
-                    listings={mockListings}
-                    itemsPerPage={6}
-                    onViewDetails={handleViewDetails}
-                  />
+                  <div className="max-h-[70vh] overflow-y-auto">
+                    <CarGrid
+                      listings={mockListings}
+                      itemsPerPage={6}
+                      onViewDetails={handleViewDetails}
+                    />
+                  </div>
                   {/*  <ul>
                     <li
                       key={listing.id}
@@ -330,7 +335,10 @@ export default function CarDetails({ listing, onClose }) {
                     </li>
                   </ul> */}
                   <button
-                    onClick={() => setShowCompareModal(false)}
+                    onClick={() =>
+                      setShowCompareModal(false) &&
+                      setSetSelectCarToCompare(false)
+                    }
                     className="mt-4 w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700"
                   >
                     Cancel
