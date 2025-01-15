@@ -55,7 +55,10 @@ const Navbar = ({ children }) => {
           <Link to={"/"} className=" text-gray-700 hover:text-blue-600">
             Home
           </Link>
-          <Link to={"/carComparison"} className=" text-gray-700 hover:text-blue-600">
+          <Link
+            to={"/carComparison"}
+            className=" text-gray-700 hover:text-blue-600"
+          >
             Compare
           </Link>
           <Link to={"/about"} className=" text-gray-700 hover:text-blue-600">
@@ -83,12 +86,14 @@ const Navbar = ({ children }) => {
                 My Listings
               </Link>
             )}
-            <Link
-              to={"/messages"}
-              className="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
-            >
-              Messages
-            </Link>
+            {user && (
+              <Link
+                to={"/messages"}
+                className="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
+              >
+                Messages
+              </Link>
+            )}
             <div className="flex items-center space-x-4">
               {user && (
                 <button className="text-gray-600 hover:text-gray-900">
@@ -145,9 +150,12 @@ const Navbar = ({ children }) => {
             <Link to={"/"} className="text-gray-700 hover:text-blue-600">
               Home
             </Link>
-            <Link to={"/carComparison"} className=" text-gray-700 hover:text-blue-600">
-            Compare
-          </Link>
+            <Link
+              to={"/carComparison"}
+              className=" text-gray-700 hover:text-blue-600"
+            >
+              Compare
+            </Link>
             <Link to={"/about"} className="text-gray-700 hover:text-blue-600">
               About
             </Link>
@@ -160,9 +168,15 @@ const Navbar = ({ children }) => {
             <Link to={"/contact"} className="text-gray-700 hover:text-blue-600">
               Contact
             </Link>
-            <Link to={"/faq"} className="text-gray-700 hover:text-blue-600">
-              FAQ
-            </Link>
+            <div className="flex justify-between items-center">
+              <Link to={"/faq"} className="text-gray-700 hover:text-blue-600">
+                FAQ
+              </Link>
+              <ProfileDropdown
+                onLoginClick={handleLoginClick}
+                onRegisterClick={handleRegisterClick}
+              />
+            </div>
             {/* <Link
               to={"/register"}
               className="text-gray-700 hover:text-blue-600"
@@ -178,19 +192,14 @@ const Navbar = ({ children }) => {
                   My Listings
                 </Link>
               )}
-              <div className="flex justify-between items-center">
+              {user && (
                 <Link
                   to={"/messages"}
-                  className="text-gray-700 hover:text-blue-600"
+                  className="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
                 >
                   Messages
                 </Link>
-
-                <ProfileDropdown
-                  onLoginClick={handleLoginClick}
-                  onRegisterClick={handleRegisterClick}
-                />
-              </div>
+              )}
 
               {user && (
                 <Link
