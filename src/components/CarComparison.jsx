@@ -3,7 +3,7 @@ import { X, Calendar, MapPin, Gauge, Check, Phone } from "lucide-react";
 import CarGrid from "./CarGrid";
 import { mockListings } from "../Data/mockData";
 
-export default function CarDetails({ listing, onClose, carList }) {
+const CarComparison = ({ listing, onClose, carList }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isSliding, setIsSliding] = useState(false);
   const [compareListing, setCompareListing] = useState(null);
@@ -158,6 +158,7 @@ export default function CarDetails({ listing, onClose, carList }) {
             </button>
           </div>
 
+{/* fix this code */}
           {renderCarDetails(listing)}
 
           {compareListing && (
@@ -206,3 +207,5 @@ export default function CarDetails({ listing, onClose, carList }) {
     </div>
   );
 }
+
+export default CarComparison
