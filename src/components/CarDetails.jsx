@@ -30,6 +30,10 @@ export default function CarDetails({ listing, onClose }) {
     }, 300); // Duration matches the CSS animation
   };
 
+  const handleThumbnailClick = (index) => {
+    setCurrentImageIndex(index);
+  };
+
   /* CAR COMPARISON */
   const handleSelectCompareCar = (carId) => {
     const selectedCar = listing.find((car) => car.id === carId);
@@ -189,7 +193,8 @@ export default function CarDetails({ listing, onClose }) {
                   ❯
                 </button>
               </div>
-               {/* Thumbnails */}
+
+              {/* Thumbnails */}
               <div className="flex mt-4 gap-2">
                 {listing.images.map((image, index) => (
                   <img
@@ -197,7 +202,9 @@ export default function CarDetails({ listing, onClose }) {
                     src={image}
                     alt={`Thumbnail ${index + 1}`}
                     className={`h-16 w-16 object-cover border-2 rounded ${
-                      index === currentImageIndex ? "border-blue-500" : "border-gray-200"
+                      index === currentImageIndex
+                        ? "border-blue-500"
+                        : "border-gray-200"
                     } cursor-pointer`}
                     onClick={() => handleThumbnailClick(index)}
                   />
