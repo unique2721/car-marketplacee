@@ -14,6 +14,9 @@ import Contact from "./pages/Contact.jsx";
 import Faq from "./pages/Faq.jsx";
 import CarListing from "./components/CarListing.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
+import Dashboard from "./admin/ManageCars/Dashboard.jsx";
+import ManageCars from "./admin/ManageCars/ManageCars.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +45,14 @@ const router = createBrowserRouter([
   {
     path: "/carListing",
     element: <CarListing />,
+  },
+  {
+    path: "/admin/dashboard",
+    element: <Dashboard />,
+  },
+  {
+    path: "/admin/cars",
+    element: <ManageCars />,
   },
 ]);
 
