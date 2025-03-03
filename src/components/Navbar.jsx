@@ -52,6 +52,9 @@ const Navbar = ({ children }) => {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex gap-6 text-gray-700 items-center">
+          <Link to={"/admin/dashboard"} className=" text-gray-700 hover:text-blue-600">
+            Admin
+          </Link>
           <Link to={"/"} className=" text-gray-700 hover:text-blue-600">
             Home
           </Link>
