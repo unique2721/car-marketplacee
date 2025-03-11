@@ -6,7 +6,7 @@ export default function ProfileDropdown({ onLoginClick, onRegisterClick }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const { user, logout } = useAuth();
-
+  console.log(user);
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -30,11 +30,11 @@ export default function ProfileDropdown({ onLoginClick, onRegisterClick }) {
                 user.avatar ||
                 "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=150"
               }
-              alt={user.name}
+              alt={user.user_name}
               className="w-8 h-8 rounded-full object-cover"
             />
             <span className="hidden md:inline text-sm text-gray-700">
-              {user.name}
+              {user.user_name}
             </span>
           </>
         ) : (
