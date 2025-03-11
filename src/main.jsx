@@ -52,6 +52,14 @@ const router = createBrowserRouter([
     path: "/messages",
     element: <Message />,
   },
+  {
+    path: "/admin/dashboard",
+    element: <Dashboard />,
+  },
+  {
+    path: "/admin/cars",
+    element: <ManageCars />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
