@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import UserTable from './UserTable';
 import UserForm from './UserForm';
+import Layout from '../ManageCars/Layout';
 
 const ManageUsers = () => {
   const [users, setUsers] = useState([]);
@@ -36,6 +37,7 @@ const ManageUsers = () => {
   };
 
   return (
+    <Layout>
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-4">Manage Users</h1>
       <UserTable users={users} onEdit={handleEdit} onDelete={handleDelete} />
@@ -43,6 +45,7 @@ const ManageUsers = () => {
         <UserForm userToEdit={userToEdit} onClose={handleCloseForm} onSuccess={() => fetchUsers()} />
       )}
     </div>
+    </Layout>
   );
 };
 
