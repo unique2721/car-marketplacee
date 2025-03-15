@@ -1,4 +1,4 @@
-import Layout from "./Layout";
+import Layout from "../ManageCars/Layout";
 const Dashboard = () => {
   return (
     <Layout>

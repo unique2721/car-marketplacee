@@ -16,8 +16,11 @@ import CarListing from "./components/CarListing.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import Message from "./pages/Message.jsx";
 import { SocketProvider } from "./context/SocketContext.jsx";
-import Dashboard from "./admin/ManageCars/Dashboard.jsx";
+import Dashboard from "./admin/Dashboard/Dashboard.jsx";
 import ManageCars from "./admin/ManageCars/ManageCars.jsx";
+import Settings from "./admin/Settings/Settings.jsx";
+import Logout from "./admin/Logout/Logout.jsx";
+// import ManageUsers from "./admin/ManageUsers/ManageUsers.jsx";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +63,18 @@ const router = createBrowserRouter([
     path: "/admin/cars",
     element: <ManageCars />,
   },
+  {
+    path: "/admin/settings",
+    element: <Settings/>
+  },
+  {
+    path: "/admin/logout",
+    element: <Logout/>
+  },
+  // {
+  //   path: "/admin/users",
+  //   element: <ManageUsers />,
+  // }
 ]);
 
 createRoot(document.getElementById("root")).render(
