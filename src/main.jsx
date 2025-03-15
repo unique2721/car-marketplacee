@@ -14,6 +14,8 @@ import Contact from "./pages/Contact.jsx";
 import Faq from "./pages/Faq.jsx";
 import CarListing from "./components/CarListing.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
+import Message from "./pages/Message.jsx";
+import { SocketProvider } from "./context/SocketContext.jsx";
 import Dashboard from "./admin/ManageCars/Dashboard.jsx";
 import ManageCars from "./admin/ManageCars/ManageCars.jsx";
 
@@ -24,7 +26,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/carComparison",
-    element: <ComparisonPage  />,
+    element: <ComparisonPage />,
   },
   {
     path: "/about",
@@ -47,6 +49,10 @@ const router = createBrowserRouter([
     element: <CarListing />,
   },
   {
+    path: "/messages",
+    element: <Message />,
+  },
+  {
     path: "/admin/dashboard",
     element: <Dashboard />,
   },
@@ -59,7 +65,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <SocketProvider>
+        <RouterProvider router={router} />
+      </SocketProvider>
     </AuthProvider>
   </StrictMode>
 );
