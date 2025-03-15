@@ -150,6 +150,9 @@ const Navbar = ({ children }) => {
       {nav && (
         <div className="md:hidden bg-white shadow-md py-4 px-6">
           <div className="flex flex-col gap-4">
+          <Link to={"/admin/dashboard"} className=" text-gray-700 hover:text-blue-600">
+            Admin
+          </Link>
             <Link to={"/"} className="text-gray-700 hover:text-blue-600">
               Home
             </Link>
