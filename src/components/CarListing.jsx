@@ -1,80 +1,110 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+import { AddCar } from "../utils/ActionsOnCars";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+
+// Fix default icon issue
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  iconRetinaUrl:
+    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+});
 
 const CarListing = () => {
-  const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    location: "",
-    brand: "",
-    year: "",
-    bodyType: "",
-    fuel: "",
-    mileage: "",
-    model: "",
-    transmission: "",
-    color: "",
-  });
+  const formData = new FormData();
+  const [currentAddress, setCurrentAddress] = useState({});
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loadingLocation, setLoadingLocation] = useState(false);
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  if (!user) {
+    navigate("/");
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    formData.append(name, value);
   };
 
   const validate = () => {
     let formErrors = {};
-    if (!formData.title) formErrors.title = "Title is required";
-    if (!formData.description)
+    if (!formData.get("title")) formErrors.title = "Title is required";
+    if (!formData.get("description"))
       formErrors.description = "Description is required";
-    if (!formData.location) formErrors.location = "Location is required";
-    if (!formData.brand) formErrors.brand = "Brand is required";
-    if (!formData.year) formErrors.year = "Year is required";
-    if (!formData.bodyType) formErrors.bodyType = "Body Type is required";
-    if (!formData.fuel) formErrors.fuel = "Fuel Type is required";
-    if (!formData.mileage) formErrors.mileage = "Mileage is required";
-    if (!formData.model) formErrors.model = "Model is required";
-    if (!formData.transmission)
+    if (!formData.get("location")) formErrors.location = "Location is required";
+    if (!formData.get("brand")) formErrors.brand = "Brand is required";
+    if (!formData.get("year")) formErrors.year = "Year is required";
+    if (!formData.get("bodyType"))
+      formErrors.bodyType = "Body Type is required";
+    if (!formData.get("fuel")) formErrors.fuel = "Fuel Type is required";
+    if (!formData.get("mileage")) formErrors.mileage = "Mileage is required";
+    if (!formData.get("model")) formErrors.model = "Model is required";
+    if (!formData.get("transmission"))
       formErrors.transmission = "Transmission is required";
-    if (!formData.color) formErrors.color = "Color is required";
+    if (!formData.get("color")) formErrors.color = "Color is required";
 
     return formErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
     const formErrors = validate();
-    if (Object.keys(formErrors).length === 0) {
-      setIsSubmitting(true);
-      // Simulate form submission
-      setTimeout(() => {
-        setIsSubmitting(false);
-        alert("Car listing submitted successfully!");
-        setFormData({
-          title: "",
-          description: "",
-          location: "",
-          brand: "",
-          year: "",
-          bodyType: "",
-          fuel: "",
-          mileage: "",
-          model: "",
-          transmission: "",
-          color: "",
-        });
-      }, 2000);
-    } else {
+    if (Object.keys(formErrors).length !== 0) {
       setErrors(formErrors);
+      return;
+    }
+    setIsSubmitting(true);
+
+    try {
+      formData.append("user", user.id);
+      await AddCar(formData);
+      alert("car successfully submitted!");
+    } catch (error) {
+      alert("error while submitting the car listing!");
+    } finally {
+      setIsSubmitting(false);
     }
   };
+  const getCurrentLocation = () => {
+    setLoadingLocation(true);
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
 
+        try {
+          const response = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+          );
+          const data = await response.json();
+
+          const address = data.display_name || "Location found";
+          setCurrentAddress({
+            address,
+            lon: longitude,
+            lat: latitude,
+          });
+        } catch (error) {
+          setErrors({ ...errors, location: "Could not retrieve location" });
+        }
+
+        setLoadingLocation(false);
+      },
+      (error) => {
+        console.error("Geolocation error:", error);
+        setErrors({ ...errors, location: "Location permission denied" });
+        setLoadingLocation(false);
+      }
+    );
+  };
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-100 py-16">
       <Navbar />
@@ -94,7 +124,7 @@ const CarListing = () => {
               type="text"
               id="title"
               name="title"
-              value={formData.title}
+              value={formData.get("title")}
               onChange={handleChange}
               className="w-full p-4 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -113,7 +143,7 @@ const CarListing = () => {
             <textarea
               id="description"
               name="description"
-              value={formData.description}
+              value={formData.get("description")}
               onChange={handleChange}
               rows="4"
               className="w-full p-4 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -123,23 +153,55 @@ const CarListing = () => {
             )}
           </div>
 
-          <div>
+          <div className="mb-4">
             <label
               htmlFor="location"
               className="block text-gray-700 font-semibold"
             >
               Location
             </label>
-            <input
-              type="text"
-              id="location"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              className="w-full p-4 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+            <div className="flex gap-2">
+              <input
+                type="text"
+                id="location"
+                name="location"
+                value={currentAddress.address || ""}
+                onChange={handleChange}
+                className="w-full p-4 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter or detect your location"
+              />
+              <button
+                type="button"
+                onClick={getCurrentLocation}
+                className="p-2 mt-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+              >
+                {loadingLocation ? "Detecting..." : "Use Current Location"}
+              </button>
+            </div>
             {errors.location && (
               <p className="text-red-500 text-sm mt-1">{errors.location}</p>
+            )}
+            {Object.keys(currentAddress).length !== 0 && (
+              <div className="mt-4">
+                <MapContainer
+                  center={[currentAddress.lat || 0, currentAddress.lon || 0]}
+                  zoom={13}
+                  style={{ height: "300px", width: "100%" }}
+                >
+                  <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  <Marker
+                    position={[
+                      currentAddress.lat || 0,
+                      currentAddress.lon || 0,
+                    ]}
+                  >
+                    <Popup>{currentAddress.address}</Popup>
+                  </Marker>
+                </MapContainer>
+              </div>
             )}
           </div>
 

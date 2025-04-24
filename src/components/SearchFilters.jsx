@@ -15,15 +15,12 @@ const priceRanges = [
   "$40,000+",
 ];
 
-export default function SearchFilters() {
+export default function SearchFilters({ setFilterType, filterType }) {
   const [selectedMake, setSelectedMake] = useState("");
-  const [selectedModel, setSelectedModel] = useState("");
-  const [selectedPrice, setSelectedPrice] = useState("");
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
-
   const handleSearch = () => {
     // TODO: Implement search functionality
-    console.log({ selectedMake, selectedModel, selectedPrice });
+    console.log({});
   };
 
   const handleApplyAdvancedFilters = (filters) => {
@@ -58,7 +55,7 @@ export default function SearchFilters() {
               Model
             </label>
             <select
-              value={selectedModel}
+              value={selectedMake}
               onChange={(e) => setSelectedModel(e.target.value)}
               className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
             >
@@ -76,7 +73,7 @@ export default function SearchFilters() {
               Price Range
             </label>
             <select
-              value={selectedPrice}
+              value={selectedMake}
               onChange={(e) => setSelectedPrice(e.target.value)}
               className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
             >

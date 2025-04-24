@@ -2,7 +2,7 @@ import React from "react";
 import Data from "../Data/Data";
 import SearchFilters from "./SearchFilters";
 
-const Category = () => {
+const Category = ({ setFilterType, filterType }) => {
   return (
     <div
       className="py-12"
@@ -25,7 +25,7 @@ const Category = () => {
           </div>
         ))}
       </div>
-      <SearchFilters />
+      <SearchFilters setFilterType={setFilterType} filterType={filterType} />
     </div>
   );
 };

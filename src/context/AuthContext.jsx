@@ -27,9 +27,7 @@ export function AuthProvider({ children }) {
         const errorData = await res.data;
         throw new Error(errorData.error || "Invalid credentials");
       }
-
-      const { token } = res.data;
-      setUser(jwtDecode(token));
+      window.location.reload();
     } catch (err) {
       console.error("Login error:", err);
       throw err;
@@ -37,7 +35,7 @@ export function AuthProvider({ children }) {
   };
 
   const logout = async () => {
-    const res = await axios.get("http://localhost:3000/api/auth/logout", {
+    const res = await axios.post("http://localhost:3000/api/auth/logout", {
       withCredentials: true,
     });
     setUser(null);
@@ -60,10 +58,7 @@ export function AuthProvider({ children }) {
         const errorData = res.data;
         throw new Error(errorData.error || "Failed to register");
       }
-
-      const { token } = res.data;
-      console.log(token);
-      setUser(jwtDecode(token));
+      window.location.reload();
     } catch (err) {
       console.error("Register error:", err);
       throw err; // Re-throw for caller to handle

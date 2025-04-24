@@ -14,35 +14,15 @@ import CarDetails from "../components/CarDetails";
 import CarComparison from "../components/CarComparison";
 import { mockListings } from "../Data/mockData";
 import SearchFilters from "../components/SearchFilters";
+import BrowseCars from "../components/BrowseCars";
 
 const Home = () => {
-  const [selectedListing, setSelectedListing] = useState(null);
-
-  const handleViewDetails = (id) => {
-    setSelectedListing(id);
-  };
-
-  const selectedCar = mockListings.find(
-    (listing) => listing.id === selectedListing
-  );
-
   return (
     <div>
       <Navbar />
       {/*  <CarFilter/> */}
       <Hero />
-      <Category />
-      <CarGrid
-        listings={mockListings}
-        itemsPerPage={6}
-        onViewDetails={handleViewDetails}
-      />
-      {selectedCar && (
-        <CarDetails
-          listing={selectedCar}
-          onClose={() => setSelectedListing(null)}
-        />
-      )}
+      <BrowseCars />
       {/* <Cars /> */}
       <Footer />
     </div>
