@@ -3,7 +3,6 @@ import { X, Calendar, MapPin, Gauge, Check, Phone, Mail } from "lucide-react";
 import CarGrid from "./CarGrid";
 import { mockListings } from "../Data/mockData";
 
-
 export default function CarDetails({ listing, onClose }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isSliding, setIsSliding] = useState(false);
@@ -15,7 +14,7 @@ export default function CarDetails({ listing, onClose }) {
     setIsSliding(true);
     setTimeout(() => {
       setCurrentImageIndex((prevIndex) =>
-        prevIndex === listing.images.length - 1 ? 0 : prevIndex + 1
+        prevIndex === listing.images.length - 1 ? 0 : prevIndex + 1,
       );
       setIsSliding(false);
     }, 300); // Duration matches the CSS animation
@@ -26,7 +25,7 @@ export default function CarDetails({ listing, onClose }) {
     setIsSliding(true);
     setTimeout(() => {
       setCurrentImageIndex((prevIndex) =>
-        prevIndex === 0 ? listing.images.length - 1 : prevIndex - 1
+        prevIndex === 0 ? listing.images.length - 1 : prevIndex - 1,
       );
       setIsSliding(false);
     }, 300); // Duration matches the CSS animation
@@ -50,7 +49,7 @@ export default function CarDetails({ listing, onClose }) {
   };
 
   const selectedCar = mockListings.find(
-    (listing) => listing.id === selectedListing
+    (listing) => listing.id === selectedListing,
   );
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
