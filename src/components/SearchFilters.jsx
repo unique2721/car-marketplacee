@@ -17,15 +17,45 @@ const priceRanges = [
 
 export default function SearchFilters({ setFilterType, filterType }) {
   const [selectedMake, setSelectedMake] = useState("");
+  const [selectedModel, setSelectedModel] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("Any Price");
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+
+  const priceRangeToBounds = (range) => {
+    switch (range) {
+      case "Under $20,000":
+        return { min: 0, max: 20000 };
+      case "$20,000 - $30,000":
+        return { min: 20000, max: 30000 };
+      case "$30,000 - $40,000":
+        return { min: 30000, max: 40000 };
+      case "$40,000+":
+        return { min: 40000, max: Infinity };
+      default:
+        return null;
+    }
+  };
+
   const handleSearch = () => {
-    // TODO: Implement search functionality
-    console.log({});
+    const newFilter = { ...filterType };
+
+    if (selectedMake) newFilter.make = selectedMake;
+    else delete newFilter.make;
+
+    if (selectedModel) newFilter.model = selectedModel;
+    else delete newFilter.model;
+
+    const bounds = priceRangeToBounds(selectedPrice);
+    if (bounds) newFilter.priceRange = bounds;
+    else delete newFilter.priceRange;
+
+    setFilterType(newFilter);
   };
 
   const handleApplyAdvancedFilters = (filters) => {
-    console.log("Advanced filters:", filters);
-    // Implement advanced filter logic
+    // Merge advanced filters into the main filterType
+    // Keep existing filterType keys (make/model/priceRange) intact
+    setFilterType((prev) => ({ ...prev, ...filters }));
   };
 
   return (
@@ -55,7 +85,7 @@ export default function SearchFilters({ setFilterType, filterType }) {
               Model
             </label>
             <select
-              value={selectedMake}
+              value={selectedModel}
               onChange={(e) => setSelectedModel(e.target.value)}
               className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
             >
@@ -73,7 +103,7 @@ export default function SearchFilters({ setFilterType, filterType }) {
               Price Range
             </label>
             <select
-              value={selectedMake}
+              value={selectedPrice}
               onChange={(e) => setSelectedPrice(e.target.value)}
               className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
             >
@@ -107,6 +137,21 @@ export default function SearchFilters({ setFilterType, filterType }) {
         isOpen={showAdvancedFilters}
         onClose={() => setShowAdvancedFilters(false)}
         onApplyFilters={handleApplyAdvancedFilters}
+        onClear={() => {
+          // remove advanced filter keys from filterType
+          setFilterType((prev) => {
+            const copy = { ...prev };
+            [
+              "vehicleDetails",
+              "transmission",
+              "fuelType",
+              "bodyStyle",
+              "features",
+              "safety",
+            ].forEach((k) => delete copy[k]);
+            return copy;
+          });
+        }}
       />
     </>
   );

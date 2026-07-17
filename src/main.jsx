@@ -14,6 +14,7 @@ import Contact from "./pages/Contact.jsx";
 import Faq from "./pages/Faq.jsx";
 import CarListing from "./components/CarListing.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
+import { SearchProvider } from "./context/SearchContext.jsx";
 import Message from "./pages/Message.jsx";
 import { SocketProvider } from "./context/SocketContext.jsx";
 import Dashboard from "./admin/Dashboard/Dashboard.jsx";
@@ -81,7 +82,9 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <SocketProvider>
-        <RouterProvider router={router} />
+        <SearchProvider>
+          <RouterProvider router={router} />
+        </SearchProvider>
       </SocketProvider>
     </AuthProvider>
   </StrictMode>

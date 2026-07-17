@@ -46,7 +46,7 @@ const filterSections = {
   }
 };
 
-export default function AdvancedFilters({ isOpen, onClose, onApplyFilters }) {
+export default function AdvancedFilters({ isOpen, onClose, onApplyFilters, onClear }) {
   const [selectedFilters, setSelectedFilters] = useState({});
 
   const handleFilterChange = (section, value) => {
@@ -67,6 +67,7 @@ export default function AdvancedFilters({ isOpen, onClose, onApplyFilters }) {
 
   const handleClear = () => {
     setSelectedFilters({});
+    if (typeof onClear === "function") onClear();
   };
 
   if (!isOpen) return null;

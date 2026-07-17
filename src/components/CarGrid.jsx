@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CarCard from "./CarCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { FaSearch } from "react-icons/fa";
+import { useSearch } from "../context/SearchContext";
 
 export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
   const [currentPage, setCurrentPage] = useState(1);
+  const { query, lastRun } = useSearch();
+  const gridRef = useRef(null);
+
+  // When listings or query changes, reset to first page and scroll results into view
+  useEffect(() => {
+    // Reset to first page when listings or query changes, but do not auto-scroll
+    setCurrentPage(1);
+  }, [listings, query, lastRun]);
 
   const totalPages = Math.ceil(listings.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -20,14 +29,16 @@ export default function CarGrid({ listings, itemsPerPage = 6, onViewDetails }) {
   };
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen py-10">
+    <div ref={gridRef} className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen py-10">
       {/* Search Bar */}
       <div className="flex md:hidden justify-center items-center mb-10">
         <div className="relative w-full max-w-md">
           <input
             type="text"
             className="w-full px-6 py-3 bg-white border border-gray-300 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
-            placeholder="Search cars..."
+            placeholder="Search Make, Model, Year..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
           <FaSearch className="absolute top-1/2 right-4 transform -translate-y-1/2 text-gray-500" />
         </div>

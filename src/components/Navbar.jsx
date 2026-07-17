@@ -3,6 +3,7 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 import { useAuth } from "../context/AuthContext";
+import { useSearch } from "../context/SearchContext";
 import { Car, MessageSquare } from "lucide-react";
 import LoginModal from "./auth/LoginModal";
 import RegisterModal from "./auth/RegisterModal";
@@ -16,6 +17,7 @@ const Navbar = ({ children }) => {
   };
 
   const { user } = useAuth();
+  const { query, setQuery, runSearch } = useSearch();
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
 
@@ -44,8 +46,23 @@ const Navbar = ({ children }) => {
             type="text"
             placeholder="Search Make, Model, Year..."
             className="w-full px-4 py-2 border rounded-l-md focus:outline-none"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                // keep value in context; BrowseCars will reactively filter
+                e.currentTarget.blur();
+              }
+            }}
           />
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700">
+          <button
+            className="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700"
+            onClick={() => {
+              const trimmed = (query || "").trim();
+              setQuery(trimmed);
+              runSearch();
+            }}
+          >
             Search
           </button>
         </div>

@@ -37,9 +37,11 @@ export default function CarDetails({ listing, onClose }) {
 
   /* CAR COMPARISON */
   const handleSelectCompareCar = (carId) => {
-    const selectedCar = listing.find((car) => car.id === carId);
-    setCompareListing(selectedCar);
-    setShowCompareModal(false);
+    const selectedCar = mockListings.find((c) => c.id === carId);
+    if (selectedCar) {
+      setCompareListing(selectedCar);
+      setShowCompareModal(false);
+    }
   };
 
   const [selectedListing, setSelectedListing] = useState(null);
@@ -231,12 +233,32 @@ export default function CarDetails({ listing, onClose }) {
                 </>
               )} */}
 
-              <button
-                onClick={() => setShowCompareModal(true)}
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                Compare This Car
-              </button>
+              <div className="space-y-3">
+                <button
+                  onClick={() => setShowCompareModal(true)}
+                  className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  Compare This Car
+                </button>
+                {compareListing && (
+                  <div className="space-y-2">
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => setShowCompareModal(true)}
+                        className="flex-1 bg-gray-100 text-gray-700 py-2 rounded-md"
+                      >
+                        Compare with another
+                      </button>
+                      <button
+                        onClick={() => setCompareListing(null)}
+                        className="flex-1 bg-red-100 text-red-700 py-2 rounded-md"
+                      >
+                        Clear Comparison
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
             {/* car comparison */}
             {showCompareModal && (
@@ -247,9 +269,9 @@ export default function CarDetails({ listing, onClose }) {
                   </h2>
                   <div className="max-h-[70vh] overflow-y-auto">
                     <CarGrid
-                      listings={mockListings}
+                      listings={mockListings.filter((c) => c.id !== listing.id)}
                       itemsPerPage={6}
-                      onViewDetails={handleViewDetails}
+                      onViewDetails={(id) => handleSelectCompareCar(id)}
                     />
                   </div>
                   {/*  <ul>
@@ -267,6 +289,39 @@ export default function CarDetails({ listing, onClose }) {
                   >
                     Cancel
                   </button>
+                </div>
+              </div>
+            )}
+            {/* Comparison display (side-by-side) */}
+            {compareListing && (
+              <div className="col-span-full mt-6">
+                <h3 className="text-xl font-bold mb-4">Comparison</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Left: current listing */}
+                  <div className="bg-white p-4 rounded-lg shadow">
+                    <img src={listing.images[0]} alt="left" className="w-full h-48 object-cover rounded" />
+                    <h4 className="text-lg font-semibold mt-2">{listing.year} {listing.make} {listing.model}</h4>
+                    <p className="text-indigo-600 font-bold">{listing.price.toLocaleString()} ETB</p>
+                    <p>Mileage: {listing.mileage.toLocaleString()} miles</p>
+                    <p>Location: {listing.location}</p>
+                    <h5 className="mt-3 font-medium">Features</h5>
+                    <ul className="list-disc list-inside">
+                      {listing.features.map((f) => (<li key={f}>{f}</li>))}
+                    </ul>
+                  </div>
+
+                  {/* Right: compareListing */}
+                  <div className="bg-white p-4 rounded-lg shadow">
+                    <img src={compareListing.images[0]} alt="right" className="w-full h-48 object-cover rounded" />
+                    <h4 className="text-lg font-semibold mt-2">{compareListing.year} {compareListing.make} {compareListing.model}</h4>
+                    <p className="text-indigo-600 font-bold">{compareListing.price.toLocaleString()} ETB</p>
+                    <p>Mileage: {compareListing.mileage.toLocaleString()} miles</p>
+                    <p>Location: {compareListing.location}</p>
+                    <h5 className="mt-3 font-medium">Features</h5>
+                    <ul className="list-disc list-inside">
+                      {compareListing.features.map((f) => (<li key={f}>{f}</li>))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             )}
