@@ -5,6 +5,7 @@ import { mockListings } from "../Data/mockData";
 
 export default function CarDetails({ listing, onClose }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageIndexes, setImageIndexes] = useState({});
   const [isSliding, setIsSliding] = useState(false);
   const [compareListing, setCompareListing] = useState(null);
   const [showCompareModal, setShowCompareModal] = useState(false);
@@ -33,6 +34,23 @@ export default function CarDetails({ listing, onClose }) {
 
   const handleThumbnailClick = (index) => {
     setCurrentImageIndex(index);
+  };
+
+  const getCurrentImageIndex = (carId) => imageIndexes[carId] ?? 0;
+
+  const updateImageIndex = (carId, direction, imageCount) => {
+    setImageIndexes((prev) => {
+      const currentIndex = prev[carId] ?? 0;
+      const nextIndex =
+        direction === "next"
+          ? (currentIndex + 1) % imageCount
+          : (currentIndex - 1 + imageCount) % imageCount;
+
+      return {
+        ...prev,
+        [carId]: nextIndex,
+      };
+    });
   };
 
   /* CAR COMPARISON */
@@ -299,7 +317,55 @@ export default function CarDetails({ listing, onClose }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Left: current listing */}
                   <div className="bg-white p-4 rounded-lg shadow">
-                    <img src={listing.images[0]} alt="left" className="w-full h-48 object-cover rounded" />
+                    <div className="relative overflow-hidden rounded-lg bg-gray-100">
+                      <div
+                        className="flex transition-transform duration-300 ease-in-out"
+                        style={{
+                          transform: `translateX(-${getCurrentImageIndex(listing.id) * 100}%)`,
+                        }}
+                      >
+                        {listing.images.map((image, index) => (
+                          <img
+                            key={index}
+                            src={image}
+                            alt={`${listing.make} ${listing.model}`}
+                            className="w-full h-48 object-cover flex-shrink-0"
+                          />
+                        ))}
+                      </div>
+
+                      {listing.images.length > 1 && (
+                        <>
+                          <button
+                            onClick={() => updateImageIndex(listing.id, "prev", listing.images.length)}
+                            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1.5 rounded-full"
+                          >
+                            ❮
+                          </button>
+                          <button
+                            onClick={() => updateImageIndex(listing.id, "next", listing.images.length)}
+                            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1.5 rounded-full"
+                          >
+                            ❯
+                          </button>
+                          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                            {listing.images.map((_, index) => (
+                              <button
+                                key={index}
+                                onClick={() =>
+                                  setImageIndexes((prev) => ({ ...prev, [listing.id]: index }))
+                                }
+                                className={`h-2 w-2 rounded-full ${
+                                  getCurrentImageIndex(listing.id) === index
+                                    ? "bg-white"
+                                    : "bg-white/60"
+                                }`}
+                              />
+                            ))}
+                          </div>
+                        </>
+                      )}
+                    </div>
                     <h4 className="text-lg font-semibold mt-2">{listing.year} {listing.make} {listing.model}</h4>
                     <p className="text-indigo-600 font-bold">{listing.price.toLocaleString()} ETB</p>
                     <p>Mileage: {listing.mileage.toLocaleString()} miles</p>
@@ -312,7 +378,55 @@ export default function CarDetails({ listing, onClose }) {
 
                   {/* Right: compareListing */}
                   <div className="bg-white p-4 rounded-lg shadow">
-                    <img src={compareListing.images[0]} alt="right" className="w-full h-48 object-cover rounded" />
+                    <div className="relative overflow-hidden rounded-lg bg-gray-100">
+                      <div
+                        className="flex transition-transform duration-300 ease-in-out"
+                        style={{
+                          transform: `translateX(-${getCurrentImageIndex(compareListing.id) * 100}%)`,
+                        }}
+                      >
+                        {compareListing.images.map((image, index) => (
+                          <img
+                            key={index}
+                            src={image}
+                            alt={`${compareListing.make} ${compareListing.model}`}
+                            className="w-full h-48 object-cover flex-shrink-0"
+                          />
+                        ))}
+                      </div>
+
+                      {compareListing.images.length > 1 && (
+                        <>
+                          <button
+                            onClick={() => updateImageIndex(compareListing.id, "prev", compareListing.images.length)}
+                            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1.5 rounded-full"
+                          >
+                            ❮
+                          </button>
+                          <button
+                            onClick={() => updateImageIndex(compareListing.id, "next", compareListing.images.length)}
+                            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1.5 rounded-full"
+                          >
+                            ❯
+                          </button>
+                          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                            {compareListing.images.map((_, index) => (
+                              <button
+                                key={index}
+                                onClick={() =>
+                                  setImageIndexes((prev) => ({ ...prev, [compareListing.id]: index }))
+                                }
+                                className={`h-2 w-2 rounded-full ${
+                                  getCurrentImageIndex(compareListing.id) === index
+                                    ? "bg-white"
+                                    : "bg-white/60"
+                                }`}
+                              />
+                            ))}
+                          </div>
+                        </>
+                      )}
+                    </div>
                     <h4 className="text-lg font-semibold mt-2">{compareListing.year} {compareListing.make} {compareListing.model}</h4>
                     <p className="text-indigo-600 font-bold">{compareListing.price.toLocaleString()} ETB</p>
                     <p>Mileage: {compareListing.mileage.toLocaleString()} miles</p>

@@ -4,32 +4,26 @@ import CarGrid from "./CarGrid";
 import { mockListings } from "../Data/mockData";
 
 const CarComparison = ({ listing, onClose, carList }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isSliding, setIsSliding] = useState(false);
+  const [imageIndexes, setImageIndexes] = useState({});
   const [compareListing, setCompareListing] = useState(null);
   const [showCompareModal, setShowCompareModal] = useState(false);
   const [selectedListing, setSelectedListing] = useState(null);
 
-  const handleNextImage = () => {
-    if (isSliding) return;
-    setIsSliding(true);
-    setTimeout(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === listing.images.length - 1 ? 0 : prevIndex + 1
-      );
-      setIsSliding(false);
-    }, 300);
-  };
+  const getCurrentImageIndex = (car) => imageIndexes[car.id] ?? 0;
 
-  const handlePrevImage = () => {
-    if (isSliding) return;
-    setIsSliding(true);
-    setTimeout(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === 0 ? listing.images.length - 1 : prevIndex - 1
-      );
-      setIsSliding(false);
-    }, 300);
+  const updateImageIndex = (carId, direction, imageCount) => {
+    setImageIndexes((prev) => {
+      const currentIndex = prev[carId] ?? 0;
+      const nextIndex =
+        direction === "next"
+          ? (currentIndex + 1) % imageCount
+          : (currentIndex - 1 + imageCount) % imageCount;
+
+      return {
+        ...prev,
+        [carId]: nextIndex,
+      };
+    });
   };
 
   // const handleSelectCompareCar = (carId) => {
@@ -52,11 +46,11 @@ const CarComparison = ({ listing, onClose, carList }) => {
   const renderCarDetails = (car) => (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div>
-        <div className="mt-6 relative overflow-hidden">
+        <div className="mt-6 relative overflow-hidden rounded-lg bg-gray-100">
           <div
-            className="flex transition-transform duration-300"
+            className="flex transition-transform duration-300 ease-in-out"
             style={{
-              transform: `translateX(-${currentImageIndex * 100}%)`,
+              transform: `translateX(-${getCurrentImageIndex(car) * 100}%)`,
             }}
           >
             {car.images.map((image, index) => (
@@ -68,18 +62,38 @@ const CarComparison = ({ listing, onClose, carList }) => {
               />
             ))}
           </div>
-          <button
-            onClick={handlePrevImage}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70"
-          >
-            ❮
-          </button>
-          <button
-            onClick={handleNextImage}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70"
-          >
-            ❯
-          </button>
+
+          {car.images.length > 1 && (
+            <>
+              <button
+                onClick={() => updateImageIndex(car.id, "prev", car.images.length)}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70"
+              >
+                ❮
+              </button>
+              <button
+                onClick={() => updateImageIndex(car.id, "next", car.images.length)}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70"
+              >
+                ❯
+              </button>
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                {car.images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() =>
+                      setImageIndexes((prev) => ({ ...prev, [car.id]: index }))
+                    }
+                    className={`h-2.5 w-2.5 rounded-full transition ${
+                      getCurrentImageIndex(car) === index
+                        ? "bg-white"
+                        : "bg-white/60"
+                    }`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </div>
 
         <div className="mt-6">
