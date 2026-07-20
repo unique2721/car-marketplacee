@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Bell, CarFront, PencilLine, Plus, Send, ShieldOff, Sparkles, Star, Trash2, UserCircle2 } from "lucide-react";
 import { mockListings, mockMessages } from "../Data/mockData";
+import { persistMarketplaceListings } from "../Data/mockLisitngs";
 import { useAuth } from "../context/AuthContext";
 
 const sellerProfileSeed = {
@@ -217,9 +218,7 @@ export default function SellerDashboard() {
 
     const updatedListings = [listing, ...listings];
     setListings(updatedListings);
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem("seller-dashboard-listings", JSON.stringify(updatedListings));
-    }
+    persistMarketplaceListings(updatedListings);
     setActiveTab("cars");
     setShowAddCarModal(false);
     setNewCar(initialNewCar);

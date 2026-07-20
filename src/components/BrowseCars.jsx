@@ -1,21 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Category from "./Category";
 import CarGrid from "./CarGrid";
-import { mockListings } from "../Data/mockLisitngs";
+import { getMarketplaceListings, mockListings } from "../Data/mockLisitngs";
 import CarDetails from "./CarDetails";
 import { useSearch } from "../context/SearchContext";
 
 export default function () {
   const [selectedListing, setSelectedListing] = useState(null);
   const [filterType, setFilterType] = useState({});
+  const [listingsVersion, setListingsVersion] = useState(0);
 
   const { query } = useSearch();
 
-  let filteredCars = mockListings;
+  useEffect(() => {
+    const syncListings = () => setListingsVersion((prev) => prev + 1);
+
+    window.addEventListener("marketplace:listings-updated", syncListings);
+    window.addEventListener("storage", syncListings);
+    syncListings();
+
+    return () => {
+      window.removeEventListener("marketplace:listings-updated", syncListings);
+      window.removeEventListener("storage", syncListings);
+    };
+  }, []);
+
+  const listings = getMarketplaceListings();
+  let filteredCars = listings;
   const q = (query || "").trim().toLowerCase();
   if (q) {
     const tokens = q.split(/\s+/).filter(Boolean);
-    filteredCars = mockListings.filter((car) => {
+    filteredCars = listings.filter((car) => {
       // For each token, require it to match at least one of make/model/year
       return tokens.every((token) => {
         if (!token) return true;
@@ -116,7 +131,7 @@ export default function () {
     setSelectedListing(id);
   };
 
-  const selectedCar = mockListings.find(
+  const selectedCar = listings.find(
     (listing) => listing.id === selectedListing
   );
   return (

@@ -1,5 +1,25 @@
 const STORAGE_KEY = "seller-dashboard-listings";
 
+let marketplaceListings = [];
+
+export const persistMarketplaceListings = (listings) => {
+  if (typeof window === "undefined") {
+    marketplaceListings.splice(0, marketplaceListings.length, ...listings);
+    return marketplaceListings;
+  }
+
+  try {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(listings));
+  } catch (error) {
+    console.error("Unable to save listings", error);
+  }
+
+  marketplaceListings.splice(0, marketplaceListings.length, ...listings);
+  window.dispatchEvent(new CustomEvent("marketplace:listings-updated"));
+  window.dispatchEvent(new Event("storage"));
+  return marketplaceListings;
+};
+
 const getStoredListings = () => {
   if (typeof window === "undefined") {
     return [];
@@ -341,9 +361,21 @@ fuel: 'Benzine',    model: 'RX 350',
   }
 ];
 
-export const mockListings = [
-  ...baseListings,
-  ...getStoredListings().filter(
-    (listing) => !baseListings.some((baseListing) => baseListing.id === listing.id)
-  ),
-];
+export const getMarketplaceListings = () => {
+  const storedListings = getStoredListings();
+  const mergedListings = [
+    ...baseListings,
+    ...storedListings.filter(
+      (listing) => !baseListings.some((baseListing) => baseListing.id === listing.id)
+    ),
+  ];
+
+  if (marketplaceListings.length !== mergedListings.length || JSON.stringify(marketplaceListings) !== JSON.stringify(mergedListings)) {
+    marketplaceListings.splice(0, marketplaceListings.length, ...mergedListings);
+  }
+
+  return marketplaceListings;
+};
+
+getMarketplaceListings();
+export const mockListings = marketplaceListings;
