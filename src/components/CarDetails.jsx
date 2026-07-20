@@ -133,7 +133,7 @@ export default function CarDetails({ listing, onClose }) {
                         ? "border-blue-500"
                         : "border-gray-200"
                     } cursor-pointer ${
-                      index !== currentImageIndex ? "opacity-50 blur-sm" : ""
+                      index !== currentImageIndex ? "opacity-80 blur-sm" : ""
                     }`}
                     onClick={() => handleThumbnailClick(index)}
                   />
