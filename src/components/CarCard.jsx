@@ -54,9 +54,9 @@ const CarCard = ({ listing, onViewDetails }) => {
         onClick={() => toggleFavorite(listing.id)}
       >
         {favorites.includes(listing.id) ? (
-          <AiFillHeart className="text-red-500 text-xl" />
+          <AiFillHeart className="text-red-500 text-xl z-0" />
         ) : (
-          <AiOutlineHeart className="text-gray-500 text-xl" />
+          <AiOutlineHeart className="text-gray-500 text-xl z-0" />
         )}
       </div>
       {getStatusBadge(listing.status, listing.year)}
