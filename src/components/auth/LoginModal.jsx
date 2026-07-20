@@ -17,7 +17,8 @@ export default function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
       await login(email, password);
       onClose();
     } catch (err) {
-      setError("Invalid credentials");
+      const message = err?.response?.data?.error || err?.message || "Invalid credentials";
+      setError(message);
     }
   };
 

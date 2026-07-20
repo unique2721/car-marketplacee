@@ -16,12 +16,22 @@ const RegisterModal = ({ isOpen, onClose, onSwitchToLogin }) => {
     e.preventDefault();
     setError("");
 
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long.");
+      return;
+    }
+
+    if (!/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+      setError("Password must include at least one uppercase letter and one number.");
+      return;
+    }
+
     try {
-      await register(email, password, name, role);
+      await register(email, password, name, role, phoneNumber);
       onClose();
     } catch (err) {
-      console.log(err);
-      setError("Registration failed. Please try again.");
+      const message = err?.response?.data?.error || err?.message || "Registration failed. Please try again.";
+      setError(message);
     }
   };
 

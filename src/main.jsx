@@ -21,6 +21,7 @@ import Dashboard from "./admin/Dashboard/Dashboard.jsx";
 import ManageCars from "./admin/ManageCars/ManageCars.jsx";
 import Settings from "./admin/Settings/Settings.jsx";
 import Logout from "./admin/Logout/Logout.jsx";
+import SellerDashboard from "./pages/SellerDashboard.jsx";
 // import ManageUsers from "./admin/ManageUsers/ManageUsers.jsx";
 
 const router = createBrowserRouter([
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
   {
     path: "/admin/logout",
     element: <Logout/>
+  },
+  {
+    path: "/seller/dashboard",
+    element: <SellerDashboard />,
   },
   // {
   //   path: "/admin/users",

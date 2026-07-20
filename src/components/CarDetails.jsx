@@ -303,7 +303,7 @@ export default function CarDetails({ listing, onClose }) {
                   </ul> */}
                   <button
                     onClick={() => setShowCompareModal(false)}
-                    className="mt-4 w-full bg-red-600 text-white py-2 px-2 rounded-lg hover:bg-red-700"
+                    className=" mt-4 w-[80%] bg-red-600 text-white py-2 px-2 rounded-lg hover:bg-red-700"
                   >
                     Cancel
                   </button>

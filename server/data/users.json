@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1784527577867",
+    "name": "abebe",
+    "email": "uniquehabeshawi@gmail.com",
+    "password": "$2a$12$NYicwrwjRMu7d2EPTZCUwOB.9QpBJzUxHCjHEc6O4XAPIAeoPPzay",
+    "role": "seller",
+    "phoneNumber": "0999999999",
+    "createdAt": "2026-07-20T06:06:17.867Z"
+  },
+  {
+    "id": "1784528917930",
+    "name": "Gebremariam Kidane",
+    "email": "uniquehabeshawii@gmail.com",
+    "password": "$2a$12$FELj0g3/4hkrSdMw5M7WPu/ajokLSZe/vB4i5fb5TU58e46ncL0Ee",
+    "role": "buyer",
+    "phoneNumber": "0999999999",
+    "createdAt": "2026-07-20T06:28:37.930Z"
+  }
+]

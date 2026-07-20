@@ -1,4 +1,22 @@
-export const mockListings = [
+const STORAGE_KEY = "seller-dashboard-listings";
+
+const getStoredListings = () => {
+  if (typeof window === "undefined") {
+    return [];
+  }
+
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (!stored) return [];
+    const parsed = JSON.parse(stored);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    console.error("Unable to load saved listings", error);
+    return [];
+  }
+};
+
+const baseListings = [
   {
     id: '1',
     sellerId: '2',
@@ -321,4 +339,11 @@ fuel: 'Benzine',    model: 'RX 350',
     createdAt: '2024-02-19T15:30:00Z',
     status: 'active',
   }
+];
+
+export const mockListings = [
+  ...baseListings,
+  ...getStoredListings().filter(
+    (listing) => !baseListings.some((baseListing) => baseListing.id === listing.id)
+  ),
 ];

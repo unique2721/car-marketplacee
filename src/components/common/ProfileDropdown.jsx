@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
-import { User, LogOut, LogIn, UserPlus } from "lucide-react";
+import { User, LogOut, LogIn, UserPlus, LayoutDashboard } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfileDropdown({ onLoginClick, onRegisterClick }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
   const { user, logout } = useAuth();
-  console.log(user);
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -49,7 +50,24 @@ export default function ProfileDropdown({ onLoginClick, onRegisterClick }) {
               <div className="px-4 py-2 border-b">
                 <p className="text-sm font-medium text-gray-900">{user.name}</p>
                 <p className="text-sm text-gray-500">{user.email}</p>
+                {user.role === "seller" && (
+                  <p className="mt-1 inline-flex rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-700">
+                    Seller account
+                  </p>
+                )}
               </div>
+              {user.role === "seller" && (
+                <button
+                  onClick={() => {
+                    setIsOpen(false);
+                    navigate("/seller/dashboard");
+                  }}
+                  className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                >
+                  <LayoutDashboard className="w-4 h-4 mr-2" />
+                  Seller Dashboard
+                </button>
+              )}
               <button
                 onClick={() => {
                   logout();

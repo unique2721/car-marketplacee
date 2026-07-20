@@ -14,7 +14,7 @@ const Category = ({ setFilterType, filterType }) => {
       <h2 className=" font-bold text-3xl text-center mb-10 text-white ">
         Browse Cars By Type
       </h2>
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-4 px-20">
+      <div className="hidden sm:flex items-center justify-center grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-4 px-20">
         {Data.Category.map((category, index) => (
           <div
             key={index}

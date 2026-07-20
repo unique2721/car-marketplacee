@@ -1,33 +1,44 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { mockUsers } from "../Data/mockData";
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
-import Cookies from "js-cookie";
 const AuthContext = createContext();
 
-export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => {
-    const token = Cookies.get("token");
+const API_URL = "http://localhost:3000/api/auth";
 
-    return token ? jwtDecode(token) : null;
-  });
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadUser = async () => {
+      try {
+        const res = await axios.get(`${API_URL}/me`, { withCredentials: true });
+        if (res.data?.user) {
+          setUser(res.data.user);
+        }
+      } catch {
+        setUser(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadUser();
+  }, []);
 
   const login = async (email, password) => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/auth/login",
-        {
-          email,
-          password,
-        },
+        `${API_URL}/login`,
+        { email, password },
         { withCredentials: true }
       );
 
-      if (res.status !== 200) {
-        const errorData = await res.data;
-        throw new Error(errorData.error || "Invalid credentials");
+      if (res.status === 200 && res.data?.user) {
+        setUser(res.data.user);
+        return res.data.user;
       }
-      window.location.reload();
+
+      throw new Error(res.data?.error || "Invalid credentials");
     } catch (err) {
       console.error("Login error:", err);
       throw err;
@@ -35,38 +46,43 @@ export function AuthProvider({ children }) {
   };
 
   const logout = async () => {
-    const res = await axios.post("http://localhost:3000/api/auth/logout", {
-      withCredentials: true,
-    });
-    setUser(null);
+    try {
+      await axios.post(`${API_URL}/logout`, {}, { withCredentials: true });
+    } catch (error) {
+      console.error("Logout error:", error);
+    } finally {
+      setUser(null);
+    }
   };
 
-  const register = async (email, password, name, role) => {
+  const register = async (email, password, name, role, phoneNumber) => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/auth/register",
+        `${API_URL}/register`,
         {
           email,
           password,
           username: name,
           role,
+          phoneNumber,
         },
         { withCredentials: true }
       );
 
-      if (res.status !== 201) {
-        const errorData = res.data;
-        throw new Error(errorData.error || "Failed to register");
+      if (res.status === 201 && res.data?.user) {
+        setUser(res.data.user);
+        return res.data.user;
       }
-      window.location.reload();
+
+      throw new Error(res.data?.error || "Failed to register");
     } catch (err) {
       console.error("Register error:", err);
-      throw err; // Re-throw for caller to handle
+      throw err;
     }
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, register }}>
+    <AuthContext.Provider value={{ user, loading, login, logout, register }}>
       {children}
     </AuthContext.Provider>
   );

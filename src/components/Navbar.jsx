@@ -98,14 +98,6 @@ const Navbar = ({ children }) => {
           </Link> */}
 
           <div className="hidden sm:ml-6 sm:flex sm:space-x-4">
-            {user?.role === "seller" && (
-              <Link
-                to={"/my-listings"}
-                className="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300"
-              >
-                My Listings
-              </Link>
-            )}
             {user && (
               <Link
                 to={"/messages"}
@@ -145,14 +137,6 @@ const Navbar = ({ children }) => {
             }}
           />
 
-          {user && (
-            <Link
-              to={"/carListing"}
-              className="bg-blue-600 text-white px-2 py-2 rounded-md hover:bg-blue-700"
-            >
-              Submit
-            </Link>
-          )}
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -207,14 +191,6 @@ const Navbar = ({ children }) => {
               Register
             </Link> */}
             <div className="sm:ml-6 flex flex-col space-y-4">
-              {user?.role === "seller" && (
-                <Link
-                  to={"/my-listings"}
-                  className="text-gray-700 hover:text-blue-600"
-                >
-                  My Listings
-                </Link>
-              )}
               {user && (
                 <Link
                   to={"/messages"}
@@ -224,14 +200,6 @@ const Navbar = ({ children }) => {
                 </Link>
               )}
 
-              {user && (
-                <Link
-                  to={"/carListing"}
-                  className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 w-full text-center font-bold"
-                >
-                  Sell Your Car Easily
-                </Link>
-              )}
             </div>
 
             <LoginModal

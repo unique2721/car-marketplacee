@@ -211,7 +211,7 @@ const CarComparison = ({ listing, onClose, carList }) => {
             </ul>
             <button
               onClick={() => setShowCompareModal(false)}
-              className="mt-4 w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700"
+              className=" mt-4 w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700"
             >
               Cancel
             </button>
