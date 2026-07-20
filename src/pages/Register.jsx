@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import car from '../assets/car.jpg'
 import services from '../assets/services.jpg'
