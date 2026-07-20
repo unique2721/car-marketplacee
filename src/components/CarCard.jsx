@@ -82,7 +82,7 @@ const CarCard = ({ listing, onViewDetails }) => {
             <Gauge className="h-4 w-4 mr-2" />
             {listing.mileage.toLocaleString()} miles
           </div>
-          <hr class="my-8 border-t border-dotted border-gray-400" />
+          <hr className="my-8 border-t border-dotted border-gray-400" />
         </div>
         <div className="mt-4 flex justify-between items-center gap-4">
           <span className="text-2xl font-bold text-indigo-600">
